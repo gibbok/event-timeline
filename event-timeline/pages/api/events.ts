@@ -1,4 +1,3 @@
-// Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 import { Events } from '@/types/api'
 import type { NextApiRequest, NextApiResponse } from 'next'
 
@@ -576,7 +575,7 @@ const data: Events = [
 ]
 
 export default function handler(
-  req: NextApiRequest,
+  _req: NextApiRequest,
   res: NextApiResponse<Events>
 ) {
   res.status(200).json(data)
