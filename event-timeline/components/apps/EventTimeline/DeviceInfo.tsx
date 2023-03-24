@@ -1,4 +1,4 @@
-import { DeviceUI } from "@/pages/transform";
+import { DeviceUI } from "@/components/apps/EventTimeline/transform";
 import {
   Box,
   Table,
@@ -65,7 +65,7 @@ export const DeviceInfo = ({
               {makeCell(factoryName)}
             </TableRow>
             <TableRow>
-              {makeCell("Parner")}
+              {makeCell("Partner")}
               {makeCell(partnerName)}
             </TableRow>
             <TableRow sx={{ "& > *": { borderBottom: "unset" } }}>

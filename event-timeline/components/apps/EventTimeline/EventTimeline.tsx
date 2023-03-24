@@ -1,5 +1,12 @@
-import { EventsUI } from "@/pages/transform";
-import { Box, CircularProgress, Grid, Pagination, Paper } from "@mui/material";
+import { EventsUI } from "@/components/apps/EventTimeline/transform";
+import {
+  Box,
+  CircularProgress,
+  Grid,
+  Pagination,
+  Paper,
+  Typography,
+} from "@mui/material";
 import React from "react";
 import { EventInfo } from "./EventInfo";
 
@@ -20,6 +27,10 @@ type EventTimelineProps = EventTimelineLoading | EventTimelineLoaded;
 export const EventTimeline = (props: EventTimelineProps) => {
   if (props.status === "loading") {
     return <CircularProgress />;
+  }
+
+  if (props.data.length === 0) {
+    return <Typography>No data</Typography>;
   }
 
   return (

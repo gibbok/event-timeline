@@ -1,4 +1,4 @@
-import { EventsUI } from "@/pages/transform";
+import { EventsUI } from "@/components/apps/EventTimeline/transform";
 import axios from "axios";
 import { QueryObserverOptions, QueryOptions, useQuery, UseQueryResult } from "react-query";
 import { EventsAPI, ResponseEventsAPI } from "../types";

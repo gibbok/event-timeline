@@ -1,4 +1,4 @@
-import { CausesUI } from "@/pages/transform";
+import { CausesUI } from "@/components/apps/EventTimeline/transform";
 import {
   Box,
   Table,
