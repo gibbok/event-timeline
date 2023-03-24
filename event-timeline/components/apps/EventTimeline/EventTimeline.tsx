@@ -47,7 +47,7 @@ export const EventTimeline = (props: EventTimelineProps) => {
         elevation={3}
       >
         <Box p={2} display="flex" justifyContent="center">
-          <Pagination count={10} variant="outlined" shape="rounded" />
+          <Pagination count={5} variant="outlined" shape="rounded" />
         </Box>
       </Paper>
     </>
