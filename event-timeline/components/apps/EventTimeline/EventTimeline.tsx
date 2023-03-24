@@ -10,6 +10,9 @@ type EventTimelineLoading = Readonly<{
 type EventTimelineLoaded = Readonly<{
   status: "loaded";
   data: EventsUI;
+  page: number;
+  countPages: number;
+  onChangePage: (page: number) => void;
 }>;
 
 type EventTimelineProps = EventTimelineLoading | EventTimelineLoaded;
@@ -47,7 +50,13 @@ export const EventTimeline = (props: EventTimelineProps) => {
         elevation={3}
       >
         <Box p={2} display="flex" justifyContent="center">
-          <Pagination count={5} variant="outlined" shape="rounded" />
+          <Pagination
+            page={props.page}
+            count={props.countPages}
+            variant="outlined"
+            shape="rounded"
+            onChange={(_ev, page) => props.onChangePage(page)}
+          />
         </Box>
       </Paper>
     </>

@@ -9,8 +9,9 @@ import {
 } from "../../../pages/transform";
 
 export const EventTimelineContainer = () => {
+  const [page, setPage] = React.useState(1);
   const { data, isLoading } = useGetEvents<EventsUI>({
-    page: 1,
+    page,
     limit: 10,
     transform: (data) =>
       tranformResponseApiToUiData(sortEventsByOccurenceDesc(data)),
@@ -19,7 +20,20 @@ export const EventTimelineContainer = () => {
   if (!data && isLoading) {
     return <EventTimeline status="loading" />;
   }
+
+  const handleChangePage = (page: number) => {
+    setPage(page);
+  };
+
   if (data) {
-    return <EventTimeline status="loaded" data={data} />;
+    return (
+      <EventTimeline
+        status="loaded"
+        data={data}
+        page={page}
+        countPages={5}
+        onChangePage={handleChangePage}
+      />
+    );
   }
 };
