@@ -18,6 +18,7 @@ export const EventTimeline = (props: EventTimelineProps) => {
   if (props.status === "loading") {
     return <CircularProgress />;
   }
+
   return (
     <>
       <Grid container gap={2} mb={12}>
