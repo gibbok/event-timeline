@@ -59,16 +59,18 @@ export const EventInfo = ({
           {formatDateTime(occurrence)}
         </Typography>
       </Box>
-      {causes && <CausesInfo design={causes.design} rework={causes.rework} />}
-      {device && (
-        <DeviceInfo
-          deviceId={device.deviceId}
-          zoneName={device.zoneName}
-          factoryName={device.factoryName}
-          partnerName={device.partnerName}
-          stationName={device.partnerName}
-        />
-      )}
+      <Box display="flex" justifyContent="space-between">
+        {device && (
+          <DeviceInfo
+            deviceId={device.deviceId}
+            zoneName={device.zoneName}
+            factoryName={device.factoryName}
+            partnerName={device.partnerName}
+            stationName={device.partnerName}
+          />
+        )}
+        {causes && <CausesInfo design={causes.design} rework={causes.rework} />}
+      </Box>
     </CardContent>
   </Card>
 );
