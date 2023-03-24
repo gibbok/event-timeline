@@ -1,6 +1,6 @@
-import { Events } from "@/types/api";
+import { EventsAPI } from "@/api/types";
 
-export const eventsData: Events = [
+export const eventsData = [
     {
         "job_event_id": "5e884a00-5840-4840-9aa7-ed270933941f",
         "job_card_id": "ce6bff8d-eb09-4208-9405-c2594f74ccb0",
@@ -571,4 +571,4 @@ export const eventsData: Events = [
         },
         "job_event_occurrence": "2022-11-25 14:39:25.149178+00"
     }
-]
+] as EventsAPI
