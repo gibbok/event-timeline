@@ -1,7 +1,23 @@
+export const enum JobEventType {
+    Scheduled = 'scheduled',
+    Started = 'started',
+    OnBreak = 'on_break',
+    ClockedOut = 'clocked_out',
+    InProgress = 'in_progress',
+    Downtime = 'downtime',
+    Canceled = 'canceled',
+    Complete = 'complete',
+    DowntimeReportSubmitted = 'downtime_report_submitted',
+    OverrunReportSubmitted = 'overrun_report_submitted',
+    HeadcountChanged = 'headcount_changed',
+    SubmitDowntimeReportCauses = 'submit_downtime_report_causes',
+    JobSignedOff = "job_signed_off"
+}
+
 export type Event = Readonly<{
     job_event_id: string;
     job_card_id: string;
-    job_event_type: string;
+    job_event_type: JobEventType;
     job_event_user: string;
     job_event_metadata: JobEventMetadata;
     job_event_occurrence: string;
