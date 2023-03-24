@@ -7,6 +7,7 @@ import {
   TableContainer,
   TableHead,
   TableRow,
+  Tooltip,
   Typography,
 } from "@mui/material";
 import React from "react";
@@ -18,36 +19,62 @@ const makeCell = (content: string) => (
     <Typography fontSize={14}>{content}</Typography>
   </TableCell>
 );
+
+const formaDeviceId = (deviceId: string) => `${deviceId.substring(0, 7)} ...`;
+
 export const DeviceInfo = ({
   deviceId,
   zoneName,
   factoryName,
   partnerName,
   stationName,
-}: DeviceInfoProps) => (
-  <Box width="50%">
-    <Typography fontSize={14}>Device</Typography>
-    <TableContainer>
-      <Table size="small">
-        <TableBody>
-          <TableRow>
-            {makeCell("Zone")}
-            {makeCell(zoneName)}
-          </TableRow>
-          <TableRow>
-            {makeCell("Factory")}
-            {makeCell(factoryName)}
-          </TableRow>
-          <TableRow>
-            {makeCell("Parner")}
-            {makeCell(partnerName)}
-          </TableRow>
-          <TableRow sx={{ "& > *": { borderBottom: "unset" } }}>
-            {makeCell("Station")}
-            {makeCell(stationName)}
-          </TableRow>
-        </TableBody>
-      </Table>
-    </TableContainer>
-  </Box>
-);
+}: DeviceInfoProps) => {
+  const [showFullDeviceId, setShowFullDeviceId] = React.useState(false);
+
+  const handleShowFullDeviceId = () => {
+    setShowFullDeviceId((prevState) => !prevState);
+  };
+
+  return (
+    <Box width="50%">
+      <Typography fontSize={14}>Device</Typography>
+      <TableContainer>
+        <Table size="small">
+          <TableBody>
+            <TableRow>
+              {makeCell("Device Id")}
+              <TableCell>
+                <Tooltip
+                  title={deviceId}
+                  arrow
+                  open={showFullDeviceId}
+                  onClick={handleShowFullDeviceId}
+                >
+                  <Typography fontSize={14}>
+                    {formaDeviceId(deviceId)}
+                  </Typography>
+                </Tooltip>
+              </TableCell>
+            </TableRow>
+            <TableRow>
+              {makeCell("Zone")}
+              {makeCell(zoneName)}
+            </TableRow>
+            <TableRow>
+              {makeCell("Factory")}
+              {makeCell(factoryName)}
+            </TableRow>
+            <TableRow>
+              {makeCell("Parner")}
+              {makeCell(partnerName)}
+            </TableRow>
+            <TableRow sx={{ "& > *": { borderBottom: "unset" } }}>
+              {makeCell("Station")}
+              {makeCell(stationName)}
+            </TableRow>
+          </TableBody>
+        </Table>
+      </TableContainer>
+    </Box>
+  );
+};

@@ -6,6 +6,7 @@ import React from "react";
 import { CausesInfo } from "./CausesInfo";
 import { DeviceInfo } from "./DeviceInfo";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
+import ExpandLessIcon from "@mui/icons-material/ExpandLess";
 
 type EventInfoProps = EventUI;
 
@@ -40,55 +41,79 @@ export const EventInfo = ({
   occurrence,
   device,
   causes,
-}: EventInfoProps) => (
-  <Card>
-    <CardContent>
-      <Box display="flex" justifyContent="space-between">
-        <Box>
-          <Typography
-            style={{ textTransform: "uppercase", fontWeight: "bold" }}
-            color={makeColorEventType(type)}
-            gutterBottom
-          >
-            {type}
-          </Typography>
-          <Typography color="text.primary" gutterBottom>
-            {userName}
-          </Typography>
-        </Box>
-        <Box display="flex">
-          <Typography color="text.secondary" gutterBottom>
-            {formatDateTime(occurrence)}
-          </Typography>
-          <Box ml={4}>
-            <ExpandMoreIcon />
+}: EventInfoProps) => {
+  const [isOpen, setIsOpen] = React.useState(false);
+
+  const handleOpen = () => {
+    setIsOpen((prevState) => !prevState);
+  };
+
+  return (
+    <Card>
+      <CardContent>
+        <Box display="flex" justifyContent="space-between">
+          <Box>
+            <Typography
+              style={{ textTransform: "uppercase", fontWeight: "bold" }}
+              color={makeColorEventType(type)}
+              gutterBottom
+            >
+              {type}
+            </Typography>
+            <Typography color="text.primary" gutterBottom>
+              {userName}
+            </Typography>
+          </Box>
+          <Box display="flex">
+            <Typography color="text.secondary" gutterBottom>
+              {formatDateTime(occurrence)}
+            </Typography>
+            <Box ml={4}>
+              {isOpen ? (
+                <ExpandLessIcon
+                  style={{ cursor: "pointer" }}
+                  onClick={handleOpen}
+                />
+              ) : (
+                <ExpandMoreIcon
+                  style={{ cursor: "pointer" }}
+                  onClick={handleOpen}
+                />
+              )}
+            </Box>
           </Box>
         </Box>
-      </Box>
-      <Box>
-        {device && (
-          <Box mt={2}>
-            <Typography>{`${device.zoneName}`}</Typography>
-            <Typography>{`${device.factoryName}`}</Typography>
+        {!isOpen ? (
+          <Box>
+            {device && (
+              <Box mt={2}>
+                <Typography>{`${device.zoneName} / ${device.factoryName}`}</Typography>
+              </Box>
+            )}
+            {causes && (
+              <Box mt={2}>
+                <Typography>{causes.design.join(", ")}</Typography>
+                {causes.rework && <Typography>{`${causes.rework}`}</Typography>}
+              </Box>
+            )}
+          </Box>
+        ) : (
+          <Box display="flex" justifyContent="space-between">
+            {device && (
+              <DeviceInfo
+                deviceId={device.deviceId}
+                zoneName={device.zoneName}
+                factoryName={device.factoryName}
+                partnerName={device.partnerName}
+                stationName={device.partnerName}
+              />
+            )}
+            {causes && (
+              <CausesInfo design={causes.design} rework={causes.rework} />
+            )}
           </Box>
         )}
-        {causes && (
-          <Box mt={2}>
-            <Typography>{causes.design.join(", ")}</Typography>
-            {causes.rework && <Typography>{`${causes.rework}`}</Typography>}
-          </Box>
-        )}
-        {/* {device && (
-          <DeviceInfo
-            deviceId={device.deviceId}
-            zoneName={device.zoneName}
-            factoryName={device.factoryName}
-            partnerName={device.partnerName}
-            stationName={device.partnerName}
-          />
-        )}
-        {causes && <CausesInfo design={causes.design} rework={causes.rework} />} */}
-      </Box>
-    </CardContent>
-  </Card>
-);
+      </CardContent>
+    </Card>
+  );
+};
