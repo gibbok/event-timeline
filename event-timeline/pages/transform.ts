@@ -1,4 +1,4 @@
-import { Causes, Device, Events, JobEventMetadata, JobEventType } from "@/api/types"
+import { CausesAPI, DeviceAPI, EventsAPI, JobEventMetadataAPI, JobEventTypeAPI } from "@/api/types"
 
 export type Reason = string
 
@@ -18,7 +18,7 @@ export type DeviceUI = Readonly<{
 export type EventUI = Readonly<{
     id: string;
     cardId: string
-    type: JobEventType,
+    type: JobEventTypeAPI,
     userName: string,
     occurrence: string,
     device?: DeviceUI
@@ -27,7 +27,7 @@ export type EventUI = Readonly<{
 
 export type EventsUI = ReadonlyArray<EventUI>
 
-const getDeviceUIFromDeviceAPI = (device: Device): DeviceUI =>
+const getDeviceUIFromDeviceAPI = (device: DeviceAPI): DeviceUI =>
 ({
     deviceId: device.device_id,
     zoneName: device.station.zone_name,
@@ -37,14 +37,14 @@ const getDeviceUIFromDeviceAPI = (device: Device): DeviceUI =>
 })
 
 
-const getCausesUIFromCausedAPI = (causes: Causes): CausesUI =>
+const getCausesUIFromCausedAPI = (causes: CausesAPI): CausesUI =>
 ({
     design: causes.Design,
     rework: causes.Rework
 })
 
 
-export const tranformResponseApiToUiData = (data: Events): EventsUI =>
+export const tranformResponseApiToUiData = (data: EventsAPI): EventsUI =>
     data.map(event =>
     ({
         id: event.job_event_id,

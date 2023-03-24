@@ -1,4 +1,4 @@
-export const enum JobEventType {
+export const enum JobEventTypeAPI {
     Scheduled = 'scheduled',
     Started = 'started',
     OnBreak = 'on_break',
@@ -14,62 +14,62 @@ export const enum JobEventType {
     JobSignedOff = "job_signed_off"
 }
 
-export type Event = Readonly<{
+export type EventAPI = Readonly<{
     job_event_id: string;
     job_card_id: string;
-    job_event_type: JobEventType;
+    job_event_type: JobEventTypeAPI;
     job_event_user: string;
-    job_event_metadata: JobEventMetadata;
+    job_event_metadata: JobEventMetadataAPI;
     job_event_occurrence: string;
 }>
 
-export type JobEventMetadata = Readonly<{
-    device?: Device;
+export type JobEventMetadataAPI = Readonly<{
+    device?: DeviceAPI;
     job_headcount?: number;
-    checked_pre_flight_checks?: CheckedPreFlightCheck[];
-    causes?: Causes;
+    checked_pre_flight_checks?: CheckedPreFlightCheckAPI[];
+    causes?: CausesAPI;
     note?: string;
-    in_process_check?: InProcessCheck;
+    in_process_check?: InProcessCheckAPI;
 }>
 
-export type Causes = Readonly<{
+export type CausesAPI = Readonly<{
     Design: string[];
     Rework?: string[];
 }>
 
-export type CheckedPreFlightCheck = Readonly<{
-    images: Image[];
+export type CheckedPreFlightCheckAPI = Readonly<{
+    images: ImageAPI[];
     content: string;
     category: string;
 }>
 
-export type Image = Readonly<{
+export type ImageAPI = Readonly<{
     path: string;
     title: string;
 }>
 
-export type Device = Readonly<{
-    station: Station;
+export type DeviceAPI = Readonly<{
+    station: StationAPI;
     device_id: string;
 }>
 
-export type Station = Readonly<{
+export type StationAPI = Readonly<{
     zone_name: string;
     factory_name: string;
     partner_name: string;
     station_name: string;
 }>
 
-export type InProcessCheck = Readonly<{
+export type InProcessCheckAPI = Readonly<{
     name: string;
     type: string;
     order: number;
-    images: Image[];
+    images: ImageAPI[];
     addressed_on: string;
     check_status: string;
     check?: string;
     content?: string;
 }>
 
-export type Events = ReadonlyArray<Event>
+export type EventsAPI = ReadonlyArray<EventAPI>
 
