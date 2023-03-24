@@ -11,7 +11,7 @@ export type DeviceUI = Readonly<{
     deviceId: string
     zoneName: string,
     factoryName: string,
-    parnerName: string,
+    partnerName: string,
     stationName: string
 }>
 
@@ -32,7 +32,7 @@ const getDeviceUIFromDeviceAPI = (device: DeviceAPI): DeviceUI =>
     deviceId: device.device_id,
     zoneName: device.station.zone_name,
     factoryName: device.station.factory_name,
-    parnerName: device.station.partner_name,
+    partnerName: device.station.partner_name,
     stationName: device.station.station_name
 })
 

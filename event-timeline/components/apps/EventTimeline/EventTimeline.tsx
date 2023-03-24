@@ -1,5 +1,5 @@
 import { EventsUI } from "@/pages/transform";
-import { Box, CircularProgress } from "@mui/material";
+import { Box, CircularProgress, Grid } from "@mui/material";
 import React from "react";
 import { EventInfo } from "./EventInfo";
 
@@ -19,19 +19,21 @@ export const EventTimeline = (props: EventTimelineProps) => {
     return <CircularProgress />;
   }
   return (
-    <Box>
+    <Grid container gap={2}>
       {props.data.map((item) => (
-        <EventInfo
-          key={item.id}
-          id={item.id}
-          cardId={item.cardId}
-          type={item.type}
-          userName={item.userName}
-          occurrence={item.occurrence}
-          device={item.device}
-          causes={item.causes}
-        />
+        <Grid item xs={12}>
+          <EventInfo
+            key={item.id}
+            id={item.id}
+            cardId={item.cardId}
+            type={item.type}
+            userName={item.userName}
+            occurrence={item.occurrence}
+            device={item.device}
+            causes={item.causes}
+          />
+        </Grid>
       ))}
-    </Box>
+    </Grid>
   );
 };
