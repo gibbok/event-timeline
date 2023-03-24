@@ -17,5 +17,8 @@ export default function handler(
   const page = numericQueryParam(pageQueryParam)
   const limit = numericQueryParam(limitQueryParam)
 
-  return res.status(200).json(eventsData.slice(page, limit))
+  const start = (page - 1) * limit
+  const end = start + limit
+
+  return res.status(200).json(eventsData.slice(start, end))
 }
