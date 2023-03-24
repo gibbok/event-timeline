@@ -34,13 +34,14 @@ const makeColorEventType = (eventType: JobEventTypeAPI) => {
 };
 
 export const EventInfo = ({
-  id,
+  eventId: id,
   cardId,
   type,
   userName,
   occurrence,
   device,
   causes,
+  jobHeadcount,
 }: EventInfoProps) => {
   const [isOpen, setIsOpen] = React.useState(false);
 
@@ -111,6 +112,11 @@ export const EventInfo = ({
             {causes && (
               <CausesInfo design={causes.design} rework={causes.rework} />
             )}
+          </Box>
+        )}
+        {jobHeadcount && (
+          <Box mt={2}>
+            <Typography>Headcount {jobHeadcount}</Typography>
           </Box>
         )}
       </CardContent>

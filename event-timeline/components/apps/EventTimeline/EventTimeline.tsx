@@ -23,15 +23,16 @@ export const EventTimeline = (props: EventTimelineProps) => {
     <>
       <Grid container gap={2} mb={12}>
         {props.data.map((item) => (
-          <Grid key={item.id} item xs={12}>
+          <Grid key={item.eventId} item xs={12}>
             <EventInfo
-              id={item.id}
+              eventId={item.eventId}
               cardId={item.cardId}
               type={item.type}
               userName={item.userName}
               occurrence={item.occurrence}
               device={item.device}
               causes={item.causes}
+              jobHeadcount={item.jobHeadcount}
             />
           </Grid>
         ))}

@@ -16,13 +16,14 @@ export type DeviceUI = Readonly<{
 }>
 
 export type EventUI = Readonly<{
-    id: string;
+    eventId: string;
     cardId: string
     type: JobEventTypeAPI,
     userName: string,
     occurrence: string,
     device?: DeviceUI
     causes?: CausesUI
+    jobHeadcount?: number
 }>
 
 export type EventsUI = ReadonlyArray<EventUI>
@@ -51,12 +52,14 @@ export const sortEventsByOccurenceDesc = (data: EventsAPI) => [...data].sort((a,
 export const tranformResponseApiToUiData = (data: EventsAPI): EventsUI =>
     data.map(event =>
     ({
-        id: event.job_event_id,
+        eventId: event.job_event_id,
         cardId: event.job_card_id,
         type: event.job_event_type,
         userName: event.job_event_user,
         occurrence: event.job_event_occurrence,
         device: event.job_event_metadata.device ? getDeviceUIFromDeviceAPI(event.job_event_metadata.device) : undefined,
-        causes: event.job_event_metadata.causes ? getCausesUIFromCausedAPI(event.job_event_metadata.causes) : undefined
+        causes: event.job_event_metadata.causes ? getCausesUIFromCausedAPI(event.job_event_metadata.causes) : undefined,
+        jobHeadcount: event.job_event_metadata.job_headcount
     }))
+
 
