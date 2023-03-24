@@ -12,5 +12,10 @@ export const EventTimelineContainer = () => {
     transform: tranformResponseApiToUiData,
   });
 
-  return <div>{JSON.stringify(data)}</div>;
+  if (!data && isLoading) {
+    return <EventTimeline status="loading" />;
+  }
+  if (data) {
+    return <EventTimeline status="loaded" data={data} />;
+  }
 };
