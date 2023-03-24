@@ -20,10 +20,14 @@ export const EventInfo = ({
     <CardContent>
       <Box display="flex" justifyContent="space-between">
         <Box>
-          <Typography color="text.secondary" gutterBottom>
+          <Typography
+            style={{ textTransform: "uppercase" }}
+            color="text.primary"
+            gutterBottom
+          >
             {type}
           </Typography>
-          <Typography color="text.secondary" gutterBottom>
+          <Typography color="text.primary" gutterBottom>
             {userName}
           </Typography>
         </Box>
@@ -31,6 +35,7 @@ export const EventInfo = ({
           {formatDateTime(occurrence)}
         </Typography>
       </Box>
+      {causes && <CausesInfo design={causes.design} rework={causes.rework} />}
       {device && (
         <DeviceInfo
           deviceId={device.deviceId}
@@ -40,7 +45,6 @@ export const EventInfo = ({
           stationName={device.partnerName}
         />
       )}
-      {causes && <CausesInfo design={causes.design} rework={causes.rework} />}
     </CardContent>
   </Card>
 );
