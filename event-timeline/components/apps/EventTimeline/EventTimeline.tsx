@@ -20,7 +20,7 @@ export const EventTimeline = (props: EventTimelineProps) => {
   }
   return (
     <>
-      <Grid container gap={2} mb={14}>
+      <Grid container gap={2} mb={12}>
         {props.data.map((item) => (
           <Grid key={item.id} item xs={12}>
             <EventInfo
