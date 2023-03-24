@@ -65,7 +65,7 @@ export const DeviceInfo = ({
               {makeCell(factoryName)}
             </TableRow>
             <TableRow>
-              {makeCell("Parner")}
+              {makeCell("Partner")}
               {makeCell(partnerName)}
             </TableRow>
             <TableRow sx={{ "& > *": { borderBottom: "unset" } }}>

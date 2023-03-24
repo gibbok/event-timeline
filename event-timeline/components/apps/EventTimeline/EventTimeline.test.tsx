@@ -84,4 +84,29 @@ describe("EventTimeline", () => {
 
     expect(onChangePage).not.toBeCalled();
   });
+
+  it("should expand and show more content", async () => {
+    const onChangePage = jest.fn();
+
+    render(
+      <EventTimeline
+        status="loaded"
+        data={TEST_DATA.slice(0, 1)}
+        page={1}
+        countPages={1}
+        onChangePage={onChangePage}
+      />
+    );
+
+    userEvent.click(screen.getByTestId("ExpandMoreIcon"));
+
+    expect(await screen.findByText(/device id/i)).toBeInTheDocument();
+    expect(screen.getByText(/d859227 \.\.\./i)).toBeInTheDocument();
+    expect(screen.getByText(/zone/i)).toBeInTheDocument();
+    expect(screen.getByText(/bench \- panels/i)).toBeInTheDocument();
+    expect(screen.getByText(/urban splash house factory/i)).toBeInTheDocument();
+    expect(screen.getByText(/partner/i)).toBeInTheDocument();
+    expect(screen.getByTestId("ExpandLessIcon")).toBeInTheDocument();
+    expect(onChangePage).not.toBeCalled();
+  });
 });
