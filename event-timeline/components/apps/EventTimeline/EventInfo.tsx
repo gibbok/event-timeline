@@ -5,6 +5,7 @@ import { Box, Card, CardContent, CardHeader, Typography } from "@mui/material";
 import React from "react";
 import { CausesInfo } from "./CausesInfo";
 import { DeviceInfo } from "./DeviceInfo";
+import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 
 type EventInfoProps = EventUI;
 
@@ -55,12 +56,29 @@ export const EventInfo = ({
             {userName}
           </Typography>
         </Box>
-        <Typography color="text.secondary" gutterBottom>
-          {formatDateTime(occurrence)}
-        </Typography>
+        <Box display="flex">
+          <Typography color="text.secondary" gutterBottom>
+            {formatDateTime(occurrence)}
+          </Typography>
+          <Box ml={4}>
+            <ExpandMoreIcon />
+          </Box>
+        </Box>
       </Box>
-      <Box display="flex" justifyContent="space-between">
+      <Box>
         {device && (
+          <Box mt={2}>
+            <Typography>{`${device.zoneName}`}</Typography>
+            <Typography>{`${device.factoryName}`}</Typography>
+          </Box>
+        )}
+        {causes && (
+          <Box mt={2}>
+            <Typography>{causes.design.join(", ")}</Typography>
+            {causes.rework && <Typography>{`${causes.rework}`}</Typography>}
+          </Box>
+        )}
+        {/* {device && (
           <DeviceInfo
             deviceId={device.deviceId}
             zoneName={device.zoneName}
@@ -69,7 +87,7 @@ export const EventInfo = ({
             stationName={device.partnerName}
           />
         )}
-        {causes && <CausesInfo design={causes.design} rework={causes.rework} />}
+        {causes && <CausesInfo design={causes.design} rework={causes.rework} />} */}
       </Box>
     </CardContent>
   </Card>
