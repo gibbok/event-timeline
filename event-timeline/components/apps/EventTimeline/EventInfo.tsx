@@ -17,6 +17,7 @@ export const EventInfo = ({
       <div>Type: {type}</div>
       <div>User: {userName}</div>
       <div>Occurrence: {occurrence}</div>
+      <hr />
     </div>
   );
 };

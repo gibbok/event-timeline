@@ -1,4 +1,5 @@
 import { EventsUI } from "@/pages/transform";
+import { Box, CircularProgress } from "@mui/material";
 import React from "react";
 import { EventInfo } from "./EventInfo";
 
@@ -15,10 +16,10 @@ type EventTimelineProps = EventTimelineLoading | EventTimelineLoaded;
 
 export const EventTimeline = (props: EventTimelineProps) => {
   if (props.status === "loading") {
-    return <div>loading</div>;
+    return <CircularProgress />;
   }
   return (
-    <div>
+    <Box>
       {props.data.map((item) => (
         <EventInfo
           key={item.id}
@@ -31,6 +32,6 @@ export const EventTimeline = (props: EventTimelineProps) => {
           causes={item.causes}
         />
       ))}
-    </div>
+    </Box>
   );
 };
