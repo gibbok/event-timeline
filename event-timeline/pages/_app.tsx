@@ -8,6 +8,7 @@ import { init } from "@/configs/init";
 import type { AppProps } from "next/app";
 import { QueryClient, QueryClientProvider } from "react-query";
 import { ErrorBoundary } from "@/components/commons/ErrorBoundary/ErrorBoundary";
+import { Layout } from "@/components/commons/Layout/Layout";
 
 init();
 
@@ -17,7 +18,9 @@ export default function App({ Component, pageProps }: AppProps) {
   return (
     <ErrorBoundary>
       <QueryClientProvider client={queryClient}>
-        <Component {...pageProps} />
+        <Layout title="Event Timeline">
+          <Component {...pageProps} />
+        </Layout>
       </QueryClientProvider>
     </ErrorBoundary>
   );
