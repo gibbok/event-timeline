@@ -1,4 +1,5 @@
 import { EventUI } from "@/pages/transform";
+import { formatDateTime } from "@/utils/format";
 import React from "react";
 
 type EventInfoProps = EventUI;
@@ -16,7 +17,7 @@ export const EventInfo = ({
     <div>
       <div>Type: {type}</div>
       <div>User: {userName}</div>
-      <div>Occurrence: {occurrence}</div>
+      <div>Occurrence: {formatDateTime(occurrence)}</div>
       <hr />
     </div>
   );
