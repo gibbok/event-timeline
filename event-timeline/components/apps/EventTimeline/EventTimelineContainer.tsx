@@ -10,6 +10,8 @@ import {
 
 export const EventTimelineContainer = () => {
   const { data, isLoading } = useGetEvents<EventsUI>({
+    page: 1,
+    limit: 10,
     transform: (data) =>
       tranformResponseApiToUiData(sortEventsByOccurenceDesc(data)),
   });
