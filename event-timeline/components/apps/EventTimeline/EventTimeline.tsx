@@ -1,5 +1,5 @@
 import { EventsUI } from "@/pages/transform";
-import { Box, CircularProgress, Grid } from "@mui/material";
+import { Box, CircularProgress, Grid, Pagination, Paper } from "@mui/material";
 import React from "react";
 import { EventInfo } from "./EventInfo";
 
@@ -19,20 +19,35 @@ export const EventTimeline = (props: EventTimelineProps) => {
     return <CircularProgress />;
   }
   return (
-    <Grid container gap={2}>
-      {props.data.map((item) => (
-        <Grid key={item.id} item xs={12}>
-          <EventInfo
-            id={item.id}
-            cardId={item.cardId}
-            type={item.type}
-            userName={item.userName}
-            occurrence={item.occurrence}
-            device={item.device}
-            causes={item.causes}
-          />
-        </Grid>
-      ))}
-    </Grid>
+    <>
+      <Grid container gap={2} mb={14}>
+        {props.data.map((item) => (
+          <Grid key={item.id} item xs={12}>
+            <EventInfo
+              id={item.id}
+              cardId={item.cardId}
+              type={item.type}
+              userName={item.userName}
+              occurrence={item.occurrence}
+              device={item.device}
+              causes={item.causes}
+            />
+          </Grid>
+        ))}
+      </Grid>
+      <Paper
+        sx={{
+          position: "fixed",
+          bottom: 0,
+          left: 0,
+          right: 0,
+        }}
+        elevation={3}
+      >
+        <Box p={2} display="flex" justifyContent="center">
+          <Pagination count={10} variant="outlined" shape="rounded" />
+        </Box>
+      </Paper>
+    </>
   );
 };
