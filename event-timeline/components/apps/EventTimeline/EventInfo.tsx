@@ -34,7 +34,7 @@ const makeColorEventType = (eventType: JobEventTypeAPI) => {
 };
 
 export const EventInfo = ({
-  eventId: id,
+  eventId,
   cardId,
   type,
   userName,
@@ -69,19 +69,23 @@ export const EventInfo = ({
             <Typography color="text.secondary" gutterBottom>
               {formatDateTime(occurrence)}
             </Typography>
-            <Box ml={4}>
-              {isOpen ? (
-                <ExpandLessIcon
-                  style={{ cursor: "pointer" }}
-                  onClick={handleOpen}
-                />
-              ) : (
-                <ExpandMoreIcon
-                  style={{ cursor: "pointer" }}
-                  onClick={handleOpen}
-                />
-              )}
-            </Box>
+            {device || causes ? (
+              <Box ml={4}>
+                {isOpen ? (
+                  <ExpandLessIcon
+                    style={{ cursor: "pointer" }}
+                    onClick={handleOpen}
+                  />
+                ) : (
+                  <ExpandMoreIcon
+                    style={{ cursor: "pointer" }}
+                    onClick={handleOpen}
+                  />
+                )}
+              </Box>
+            ) : (
+              <Box width={60} />
+            )}
           </Box>
         </Box>
         {!isOpen ? (
