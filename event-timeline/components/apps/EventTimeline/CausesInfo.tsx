@@ -15,8 +15,8 @@ type CausesInfoProps = CausesUI;
 
 export const CausesInfo = ({ design, rework }: CausesInfoProps) => {
   return (
-    <Box width="50%" ml={5}>
-      <Typography fontSize={14}>Causes</Typography>
+    <Box width="50%" ml={5} mt={3}>
+      <Typography fontSize={14}>CAUSES</Typography>
       <TableContainer>
         <Table size="small">
           <TableBody>

@@ -36,8 +36,8 @@ export const DeviceInfo = ({
   };
 
   return (
-    <Box width="50%">
-      <Typography fontSize={14}>Device</Typography>
+    <Box width="50%" mt={3}>
+      <Typography fontSize={14}>DEVICE</Typography>
       <TableContainer>
         <Table size="small">
           <TableBody>
