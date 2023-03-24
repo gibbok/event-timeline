@@ -1,4 +1,4 @@
-import { EventsUI } from "@/pages/transform";
+import { EventsUI } from "@/components/apps/EventTimeline/transform";
 import {
   Box,
   CircularProgress,

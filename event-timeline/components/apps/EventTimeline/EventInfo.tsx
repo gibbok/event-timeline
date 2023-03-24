@@ -1,5 +1,5 @@
 import { JobEventTypeAPI } from "@/api/types";
-import { EventUI } from "@/pages/transform";
+import { EventUI } from "@/components/apps/EventTimeline/transform";
 import { formatDateTime } from "@/utils/format";
 import { Box, Card, CardContent, CardHeader, Typography } from "@mui/material";
 import React from "react";

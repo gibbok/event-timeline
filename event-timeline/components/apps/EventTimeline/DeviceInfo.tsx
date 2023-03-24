@@ -1,4 +1,4 @@
-import { DeviceUI } from "@/pages/transform";
+import { DeviceUI } from "@/components/apps/EventTimeline/transform";
 import {
   Box,
   Table,

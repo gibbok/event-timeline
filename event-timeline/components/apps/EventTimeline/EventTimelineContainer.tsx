@@ -7,7 +7,7 @@ import {
   EventsUI,
   sortEventsByOccurenceDesc,
   tranformResponseApiToUiData,
-} from "../../../pages/transform";
+} from "./transform";
 
 const EVENTS_PER_PAGE = 10;
 
