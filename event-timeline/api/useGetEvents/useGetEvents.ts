@@ -7,5 +7,5 @@ const KEY_EVENTS = 'KEY_EVENTS';
 
 export const getEvents = (): Promise<EventsAPI> => axios.get('events').then((response) => response.data);
 
-export type UseGetEvents = (cb: (x: EventsAPI) => EventsUI) => UseQueryResult<EventsUI, unknown>;
-export const useGetEvents: UseGetEvents = (cb) => useQuery([KEY_EVENTS], getEvents, { select: cb });
+export type UseGetEvents = ({ transform }: Readonly<{ transform: (response: EventsAPI) => EventsUI }>) => UseQueryResult<EventsUI, unknown>;
+export const useGetEvents: UseGetEvents = ({ transform }) => useQuery([KEY_EVENTS], getEvents, { select: transform });

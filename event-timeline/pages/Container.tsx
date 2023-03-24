@@ -5,7 +5,9 @@ import { EventTimeline } from "./EventTimeline";
 import { tranformResponseApiToUiData } from "./transform";
 
 export const Container = () => {
-  const { data, isLoading } = useGetEvents(tranformResponseApiToUiData);
+  const { data, isLoading } = useGetEvents({
+    transform: tranformResponseApiToUiData,
+  });
 
   return <div>{JSON.stringify(data)}</div>;
 };
