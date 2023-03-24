@@ -1,5 +1,6 @@
 import { EventsUI } from "@/pages/transform";
 import { eventsData } from "@/stabs/events";
+import { eventDataUI } from "@/stabs/eventsUI";
 import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { EventTimeline } from "./EventTimeline";
@@ -108,5 +109,25 @@ describe("EventTimeline", () => {
     expect(screen.getByText(/partner/i)).toBeInTheDocument();
     expect(screen.getByTestId("ExpandLessIcon")).toBeInTheDocument();
     expect(onChangePage).not.toBeCalled();
+  });
+
+  it("should call callback when page is changed", async () => {
+    const onChangePage = jest.fn();
+
+    render(
+      <EventTimeline
+        status="loaded"
+        data={eventDataUI}
+        page={1}
+        countPages={3}
+        onChangePage={onChangePage}
+      />
+    );
+
+    await userEvent.click(
+      screen.getByRole("button", { name: /go to page 2/i })
+    );
+
+    expect(onChangePage).toBeCalledWith(2);
   });
 });
