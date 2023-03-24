@@ -8,7 +8,7 @@ import { DeviceInfo } from "./DeviceInfo";
 
 type EventInfoProps = EventUI;
 
-const makeColor = (eventType: JobEventTypeAPI) => {
+const makeColorEventType = (eventType: JobEventTypeAPI) => {
   switch (eventType) {
     case JobEventTypeAPI.Scheduled:
     case JobEventTypeAPI.Started:
@@ -46,7 +46,7 @@ export const EventInfo = ({
         <Box>
           <Typography
             style={{ textTransform: "uppercase", fontWeight: "bold" }}
-            color={makeColor(type)}
+            color={makeColorEventType(type)}
             gutterBottom
           >
             {type}

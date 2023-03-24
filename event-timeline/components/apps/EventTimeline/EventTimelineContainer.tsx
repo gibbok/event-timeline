@@ -4,12 +4,14 @@ import React from "react";
 import { EventTimeline } from "./EventTimeline";
 import {
   EventsUI,
+  sortEventsByOccurenceDesc,
   tranformResponseApiToUiData,
 } from "../../../pages/transform";
 
 export const EventTimelineContainer = () => {
   const { data, isLoading } = useGetEvents<EventsUI>({
-    transform: tranformResponseApiToUiData,
+    transform: (data) =>
+      tranformResponseApiToUiData(sortEventsByOccurenceDesc(data)),
   });
 
   if (!data && isLoading) {
