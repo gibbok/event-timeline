@@ -1,18 +1,16 @@
-import { EventsUI } from "@/pages/transform";
-import { eventsData } from "@/stabs/events";
 import { eventDataUI } from "@/stabs/eventsUI";
 import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { EventTimeline } from "./EventTimeline";
 
 describe("EventTimeline", () => {
-  it("should render progress bar when loading data", () => {
+  it("should render progressbar when loading data", () => {
     render(<EventTimeline status="loading" />);
 
     expect(screen.getByRole("progressbar")).toBeInTheDocument();
   });
 
-  it("should render no data when data is empty", () => {
+  it("should render text no data when data is empty", () => {
     render(
       <EventTimeline
         status="loaded"
@@ -26,7 +24,7 @@ describe("EventTimeline", () => {
     expect(screen.getByText(/no data/i)).toBeInTheDocument();
   });
 
-  it("should render when data is loaded and present", () => {
+  it("should render multiple events when data is loaded", () => {
     const onChangePage = jest.fn();
 
     render(
@@ -53,7 +51,7 @@ describe("EventTimeline", () => {
     expect(onChangePage).not.toBeCalled();
   });
 
-  it("should expand and show more content", async () => {
+  it("should expand and show details for event", async () => {
     const onChangePage = jest.fn();
 
     render(
