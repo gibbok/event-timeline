@@ -73,3 +73,8 @@ export type InProcessCheckAPI = Readonly<{
 
 export type EventsAPI = ReadonlyArray<EventAPI>
 
+export type ResponseEventsAPI = Readonly<{
+    countEvents: number,
+    events: EventsAPI
+}>
+

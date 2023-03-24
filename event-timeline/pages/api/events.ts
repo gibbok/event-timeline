@@ -1,5 +1,5 @@
+import { ResponseEventsAPI } from '@/api/types'
 import { eventsData } from '@/stabs/events'
-import { Events } from '@/types/api'
 import type { NextApiRequest, NextApiResponse } from 'next'
 
 const validateNumericQueryParamOrReturnDefault = (defaultValue: number) => (query: string | string[] | undefined) =>
@@ -10,7 +10,7 @@ const numericQueryParam = validateNumericQueryParamOrReturnDefault(1)
 
 export default function handler(
   req: NextApiRequest,
-  res: NextApiResponse<Events>
+  res: NextApiResponse<ResponseEventsAPI>
 ) {
   const { page: pageQueryParam, limit: limitQueryParam } = req.query
 
@@ -20,5 +20,8 @@ export default function handler(
   const start = (page - 1) * limit
   const end = start + limit
 
-  return res.status(200).json(eventsData.slice(start, end))
+  return res.status(200).json({
+    countEvents: eventsData.length,
+    events: eventsData.slice(start, end)
+  })
 }

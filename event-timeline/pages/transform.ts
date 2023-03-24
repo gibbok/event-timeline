@@ -28,6 +28,11 @@ export type EventUI = Readonly<{
 
 export type EventsUI = ReadonlyArray<EventUI>
 
+export type EventsInfoUI = Readonly<{
+    countEvents: number,
+    events: EventsUI
+}>
+
 const getDeviceUIFromDeviceAPI = (device: DeviceAPI): DeviceUI =>
 ({
     deviceId: device.device_id,
