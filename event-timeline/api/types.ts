@@ -38,7 +38,7 @@ export type CausesAPI = Readonly<{
 }>
 
 export type CheckedPreFlightCheckAPI = Readonly<{
-    images: ImageAPI[];
+    images: ReadonlyArray<ImageAPI>;
     content: string;
     category: string;
 }>
@@ -64,7 +64,7 @@ export type InProcessCheckAPI = Readonly<{
     name: string;
     type: string;
     order: number;
-    images: ImageAPI[];
+    images: ReadonlyArray<ImageAPI[]>;
     addressed_on: string;
     check_status: string;
     check?: string;
