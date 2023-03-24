@@ -7,7 +7,7 @@ import "@fontsource/roboto/700.css";
 import { init } from "@/configs/init";
 import type { AppProps } from "next/app";
 import { QueryClient, QueryClientProvider } from "react-query";
-import { ErrorBoundary } from "@/components/common/ErrorBoundary/ErrorBoundary";
+import { ErrorBoundary } from "@/components/commons/ErrorBoundary/ErrorBoundary";
 
 init();
 
