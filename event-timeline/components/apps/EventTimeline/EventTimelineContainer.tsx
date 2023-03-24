@@ -40,7 +40,7 @@ export const EventTimelineContainer = () => {
         status="loaded"
         data={data.events}
         page={page}
-        countPages={Math.round(data.countEvents / EVENTS_PER_PAGE)}
+        countPages={Math.ceil(data.countEvents / EVENTS_PER_PAGE)}
         onChangePage={handleChangePage}
       />
     );
