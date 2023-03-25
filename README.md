@@ -43,6 +43,11 @@ The `pages` folder contains routing entry points based on `Next.js`.
 
 These techniques allow for the separation of concerns and enable quick testing of the majority of our components.
 
+The project uses some functional programming techniques such as:
+
+- Functional composition, which is used as a mechanism to combine operations on data.
+- Immutable data structures, which are used to provide predictability.
+
 ## Performance
 
 To maintain good browser performance, keep memory consumption low (number of DOM nodes), and minimize payload size (network requests and parsing), a simple pagination technique is used in the Event Timeline application. A limited amount of records are downloaded and displayed to the user at any given time. Data pagination is performed by the server, commanded by the client using query parameters.
@@ -61,7 +66,7 @@ The events are ordered in descending order, so the most recent events are on top
 
 ## Testing
 
-The current architecture allows for a clean separation of concerns between different types of components. Simple components, which represent all the views, are easily testable without any network requests. I have created a few tests, `EventTimeline.test.tsx`, using Jest and `React Testing Library`. Transformations are created as utility functions, which can be easily unit tested. Basic functional composition is being used as a mechanism to combine operations on data.
+The current architecture allows for a clean separation of concerns between different types of components. Simple components, which represent all the views, are easily testable without any network requests. I have created a few tests, `EventTimeline.test.tsx`, using Jest and `React Testing Library`. Transformations are created as utility functions, which can be easily unit tested.
 I used a TDD (Test Driven Development) approach for writing utility functions.
 
 In a real-world application, we could consider using MSW to mock network requests for our containers and test our components with React Testing Library.
