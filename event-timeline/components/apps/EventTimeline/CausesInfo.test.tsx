@@ -10,8 +10,12 @@ describe("CausesInfo", () => {
       />
     );
 
-    expect(screen.getByText(/causes/i)).toBeInTheDocument();
-    expect(screen.getByText(/drawing issues/i)).toBeInTheDocument();
+    expect(screen.getByText(/^causes$/i)).toBeInTheDocument();
+
+    expect(screen.getByText(/^design$/i)).toBeInTheDocument();
+    expect(screen.getByText(/^drawing issues$/i)).toBeInTheDocument();
+
+    expect(screen.getByText(/^rework$/i)).toBeInTheDocument();
     expect(screen.getByText(/drawing not followed/i)).toBeInTheDocument();
   });
 });
