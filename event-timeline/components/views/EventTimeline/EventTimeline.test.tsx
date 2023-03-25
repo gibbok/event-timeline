@@ -17,7 +17,7 @@ describe("EventTimeline", () => {
     expect(screen.getByText(/no data/i)).toBeInTheDocument();
   });
 
-  it("should render multiple events", () => {
+  it("should renders event timeline with data and pagination", () => {
     const onChangePage = jest.fn();
 
     render(
