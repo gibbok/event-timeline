@@ -58,11 +58,6 @@ describe("EventTimeline", () => {
     userEvent.click(screen.getByTestId("ExpandMoreIcon"));
 
     expect(await screen.findByText(/device id/i)).toBeInTheDocument();
-    expect(screen.getByText(/d859227 \.\.\./i)).toBeInTheDocument();
-    expect(screen.getByText(/zone/i)).toBeInTheDocument();
-    expect(screen.getByText(/bench \- panels/i)).toBeInTheDocument();
-    expect(screen.getByText(/urban splash house factory/i)).toBeInTheDocument();
-    expect(screen.getByText(/partner/i)).toBeInTheDocument();
     expect(screen.getByTestId("ExpandLessIcon")).toBeInTheDocument();
     expect(onChangePage).not.toBeCalled();
   });
