@@ -1,3 +1,4 @@
+import { TypographyTable } from "@/components/commons/TypographyBase/TypographyBase";
 import {
   Box,
   Table,
@@ -6,7 +7,6 @@ import {
   TableContainer,
   TableRow,
   Tooltip,
-  Typography,
 } from "@mui/material";
 import React from "react";
 import { DeviceUI } from "./types";
@@ -15,7 +15,7 @@ type DeviceInfoProps = DeviceUI;
 
 const makeCell = (content: string) => (
   <TableCell>
-    <Typography fontSize={14}>{content}</Typography>
+    <TypographyTable>{content}</TypographyTable>
   </TableCell>
 );
 
@@ -36,7 +36,7 @@ export const DeviceInfo = ({
 
   return (
     <Box width="50%" mt={3}>
-      <Typography fontSize={14}>DEVICE</Typography>
+      <TypographyTable>DEVICE</TypographyTable>
       <TableContainer>
         <Table size="small">
           <TableBody>
@@ -49,9 +49,7 @@ export const DeviceInfo = ({
                   open={showFullDeviceId}
                   onClick={handleShowFullDeviceId}
                 >
-                  <Typography fontSize={14}>
-                    {formaDeviceId(deviceId)}
-                  </Typography>
+                  <TypographyTable>{formaDeviceId(deviceId)}</TypographyTable>
                 </Tooltip>
               </TableCell>
             </TableRow>

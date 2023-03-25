@@ -1,3 +1,4 @@
+import { TypographyTable } from "@/components/commons/TypographyBase/TypographyBase";
 import {
   Box,
   Table,
@@ -5,7 +6,6 @@ import {
   TableCell,
   TableContainer,
   TableRow,
-  Typography,
 } from "@mui/material";
 import React from "react";
 import { CausesUI } from "./types";
@@ -15,25 +15,27 @@ type CausesInfoProps = CausesUI;
 export const CausesInfo = ({ design, rework }: CausesInfoProps) => {
   return (
     <Box width="50%" ml={5} mt={3}>
-      <Typography fontSize={14}>CAUSES</Typography>
+      <TypographyTable>CAUSES</TypographyTable>
       <TableContainer>
         <Table size="small">
           <TableBody>
             <TableRow>
               <TableCell>
-                <Typography fontSize={14}>Design</Typography>
+                <TypographyTable>Design</TypographyTable>
               </TableCell>
               <TableCell>
-                <Typography fontSize={14}>{design.join(", ")}</Typography>
+                <TypographyTable>
+                  {design.length > 0 ? design.join(", ") : " No data"}
+                </TypographyTable>
               </TableCell>
             </TableRow>
             {rework && (
               <TableRow sx={{ "& > *": { borderBottom: "unset" } }}>
                 <TableCell>
-                  <Typography fontSize={14}>Rework</Typography>
+                  <TypographyTable>Rework</TypographyTable>
                 </TableCell>
                 <TableCell>
-                  <Typography fontSize={14}>{rework.join(", ")}</Typography>
+                  <TypographyTable>{rework.join(", ")}</TypographyTable>
                 </TableCell>
               </TableRow>
             )}
