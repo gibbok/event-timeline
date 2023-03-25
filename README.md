@@ -71,3 +71,9 @@ In addition, E2E testing could be used, for instance, using Cypress.
 An additional layer of testing for the UI could be Visual Regression Testing, Loki, or Happo.io.
 
 As a testing strategy, we could evaluate the Testing Pyramid.
+
+## Screenshots
+
+![Screenshot 2023-03-25 at 9 17 49 PM](https://user-images.githubusercontent.com/17195702/227739615-bc2e608a-5e2f-4454-94d1-73eee9f4c85c.png)
+
+![Screenshot 2023-03-25 at 9 18 15 PM](https://user-images.githubusercontent.com/17195702/227739618-043cff0a-69cc-42fb-9363-4c69da1fe91a.png)
