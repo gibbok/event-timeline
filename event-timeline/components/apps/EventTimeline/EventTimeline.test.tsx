@@ -17,7 +17,7 @@ describe("EventTimeline", () => {
     expect(screen.getByText(/no data/i)).toBeInTheDocument();
   });
 
-  it("should render multiple events when data is loaded", () => {
+  it("should render multiple events", () => {
     const onChangePage = jest.fn();
 
     render(
@@ -43,7 +43,7 @@ describe("EventTimeline", () => {
     expect(onChangePage).not.toBeCalled();
   });
 
-  it("should expand and show details for event", async () => {
+  it("should expand and show more details when user click icon", async () => {
     const onChangePage = jest.fn();
 
     render(
