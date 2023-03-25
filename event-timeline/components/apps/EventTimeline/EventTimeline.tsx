@@ -1,11 +1,4 @@
-import {
-  Box,
-  CircularProgress,
-  Grid,
-  Pagination,
-  Paper,
-  Typography,
-} from "@mui/material";
+import { Box, Grid, Pagination, Paper, Typography } from "@mui/material";
 import React from "react";
 import { EventInfo } from "./EventInfo";
 import { EventsUI } from "./types";

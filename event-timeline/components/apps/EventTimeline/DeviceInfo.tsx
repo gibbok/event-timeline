@@ -1,16 +1,15 @@
-import { DeviceUI } from "@/components/apps/EventTimeline/transform";
 import {
   Box,
   Table,
   TableBody,
   TableCell,
   TableContainer,
-  TableHead,
   TableRow,
   Tooltip,
   Typography,
 } from "@mui/material";
 import React from "react";
+import { DeviceUI } from "./types";
 
 type DeviceInfoProps = DeviceUI;
 
