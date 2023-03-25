@@ -1,4 +1,4 @@
-import { EventTimelineContainer } from "@/components/apps/EventTimeline/EventTimelineContainer";
+import { EventTimelineContainer } from "@/components/views/EventTimeline/EventTimelineContainer";
 import Head from "next/head";
 
 export default function Home() {
