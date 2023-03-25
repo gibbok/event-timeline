@@ -31,6 +31,7 @@ export const EventTimelineContainer = () => {
 
   const handleChangePage = (page: number) => {
     setPage(page);
+    window.scrollTo(0, 0);
   };
 
   if (data) {
