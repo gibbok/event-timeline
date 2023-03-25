@@ -3,11 +3,10 @@ import { Box, CircularProgress } from "@mui/material";
 import React from "react";
 import { EventTimeline } from "./EventTimeline";
 import {
-  EventsInfoUI,
-  EventsUI,
   sortEventsByOccurenceDesc,
   tranformResponseApiToUiData,
 } from "./transform";
+import { EventsInfoUI } from "./types";
 
 const EVENTS_PER_PAGE = 10;
 
@@ -26,8 +25,8 @@ export const EventTimelineContainer = () => {
     },
   });
 
-  if (!data && isLoading) {
-    return <EventTimeline status="loading" />;
+  if (isLoading) {
+    return <CircularProgress />;
   }
 
   const handleChangePage = (page: number) => {
@@ -37,7 +36,6 @@ export const EventTimelineContainer = () => {
   if (data) {
     return (
       <EventTimeline
-        status="loaded"
         data={data.events}
         page={page}
         countPages={Math.ceil(data.countEvents / EVENTS_PER_PAGE)}

@@ -1,4 +1,3 @@
-import { EventsUI } from "@/components/apps/EventTimeline/transform";
 import {
   Box,
   CircularProgress,
@@ -9,34 +8,29 @@ import {
 } from "@mui/material";
 import React from "react";
 import { EventInfo } from "./EventInfo";
+import { EventsUI } from "./types";
 
-type EventTimelineLoading = Readonly<{
-  status: "loading";
-}>;
-
-type EventTimelineLoaded = Readonly<{
-  status: "loaded";
+type EventTimelineProps = Readonly<{
   data: EventsUI;
   page: number;
   countPages: number;
   onChangePage: (page: number) => void;
 }>;
 
-type EventTimelineProps = EventTimelineLoading | EventTimelineLoaded;
-
-export const EventTimeline = (props: EventTimelineProps) => {
-  if (props.status === "loading") {
-    return <CircularProgress />;
-  }
-
-  if (props.data.length === 0) {
+export const EventTimeline = ({
+  data,
+  page,
+  countPages,
+  onChangePage,
+}: EventTimelineProps) => {
+  if (data.length === 0) {
     return <Typography>No data</Typography>;
   }
 
   return (
     <>
       <Grid container gap={2} mb={12}>
-        {props.data.map((item) => (
+        {data.map((item) => (
           <Grid key={item.eventId} item xs={12}>
             <EventInfo
               eventId={item.eventId}
@@ -62,11 +56,11 @@ export const EventTimeline = (props: EventTimelineProps) => {
       >
         <Box p={2} display="flex" justifyContent="center">
           <Pagination
-            page={props.page}
-            count={props.countPages}
+            page={page}
+            count={countPages}
             variant="outlined"
             shape="rounded"
-            onChange={(_ev, page) => props.onChangePage(page)}
+            onChange={(_ev, page) => onChangePage(page)}
           />
         </Box>
       </Paper>

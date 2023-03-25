@@ -4,16 +4,9 @@ import userEvent from "@testing-library/user-event";
 import { EventTimeline } from "./EventTimeline";
 
 describe("EventTimeline", () => {
-  it("should render progressbar when loading data", () => {
-    render(<EventTimeline status="loading" />);
-
-    expect(screen.getByRole("progressbar")).toBeInTheDocument();
-  });
-
   it("should render text no data when data is empty", () => {
     render(
       <EventTimeline
-        status="loaded"
         data={[]}
         page={1}
         countPages={1}
@@ -29,7 +22,6 @@ describe("EventTimeline", () => {
 
     render(
       <EventTimeline
-        status="loaded"
         data={eventDataUI.slice(0, 2)}
         page={1}
         countPages={1}
@@ -56,7 +48,6 @@ describe("EventTimeline", () => {
 
     render(
       <EventTimeline
-        status="loaded"
         data={eventDataUI.slice(0, 1)}
         page={1}
         countPages={1}
@@ -81,7 +72,6 @@ describe("EventTimeline", () => {
 
     render(
       <EventTimeline
-        status="loaded"
         data={eventDataUI}
         page={1}
         countPages={3}
