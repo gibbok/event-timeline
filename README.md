@@ -2,6 +2,10 @@
 
 Event Timeline is a mini application based on React, TypeScript, and MUI. This document provides installation instructions, an overview of the tool, architectural overview, project structure, performance considerations, UX/UI aspects, and testing strategies.
 
+Running the application hosted on Vercel. You can visit it here:
+
+XXX
+
 ## Installation Instructions
 
 Follow these steps to install the Event Timeline application:
