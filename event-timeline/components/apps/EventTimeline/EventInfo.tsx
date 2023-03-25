@@ -1,5 +1,4 @@
 import { JobEventTypeAPI } from "@/api/types";
-import { EventUI } from "@/components/apps/EventTimeline/transform";
 import { formatDateTime } from "@/utils/format";
 import { Box, Card, CardContent, CardHeader, Typography } from "@mui/material";
 import React from "react";
@@ -7,6 +6,7 @@ import { CausesInfo } from "./CausesInfo";
 import { DeviceInfo } from "./DeviceInfo";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import ExpandLessIcon from "@mui/icons-material/ExpandLess";
+import { EventUI } from "./types";
 
 type EventInfoProps = EventUI;
 

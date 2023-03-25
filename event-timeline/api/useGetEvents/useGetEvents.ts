@@ -1,7 +1,6 @@
-import { EventsUI } from "@/components/apps/EventTimeline/transform";
 import axios from "axios";
-import { QueryObserverOptions, QueryOptions, useQuery, UseQueryResult } from "react-query";
-import { EventsAPI, ResponseEventsAPI } from "../types";
+import { useQuery, UseQueryResult } from "react-query";
+import { ResponseEventsAPI } from "../types";
 
 const KEY_EVENTS = 'KEY_EVENTS';
 

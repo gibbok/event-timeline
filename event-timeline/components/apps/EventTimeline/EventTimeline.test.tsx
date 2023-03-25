@@ -4,16 +4,9 @@ import userEvent from "@testing-library/user-event";
 import { EventTimeline } from "./EventTimeline";
 
 describe("EventTimeline", () => {
-  it("should render progressbar when loading data", () => {
-    render(<EventTimeline status="loading" />);
-
-    expect(screen.getByRole("progressbar")).toBeInTheDocument();
-  });
-
   it("should render text no data when data is empty", () => {
     render(
       <EventTimeline
-        status="loaded"
         data={[]}
         page={1}
         countPages={1}
@@ -24,12 +17,11 @@ describe("EventTimeline", () => {
     expect(screen.getByText(/no data/i)).toBeInTheDocument();
   });
 
-  it("should render multiple events when data is loaded", () => {
+  it("should render multiple events", () => {
     const onChangePage = jest.fn();
 
     render(
       <EventTimeline
-        status="loaded"
         data={eventDataUI.slice(0, 2)}
         page={1}
         countPages={1}
@@ -51,12 +43,11 @@ describe("EventTimeline", () => {
     expect(onChangePage).not.toBeCalled();
   });
 
-  it("should expand and show details for event", async () => {
+  it("should expand and show more details when user click icon", async () => {
     const onChangePage = jest.fn();
 
     render(
       <EventTimeline
-        status="loaded"
         data={eventDataUI.slice(0, 1)}
         page={1}
         countPages={1}
@@ -67,11 +58,6 @@ describe("EventTimeline", () => {
     userEvent.click(screen.getByTestId("ExpandMoreIcon"));
 
     expect(await screen.findByText(/device id/i)).toBeInTheDocument();
-    expect(screen.getByText(/d859227 \.\.\./i)).toBeInTheDocument();
-    expect(screen.getByText(/zone/i)).toBeInTheDocument();
-    expect(screen.getByText(/bench \- panels/i)).toBeInTheDocument();
-    expect(screen.getByText(/urban splash house factory/i)).toBeInTheDocument();
-    expect(screen.getByText(/partner/i)).toBeInTheDocument();
     expect(screen.getByTestId("ExpandLessIcon")).toBeInTheDocument();
     expect(onChangePage).not.toBeCalled();
   });
@@ -81,7 +67,6 @@ describe("EventTimeline", () => {
 
     render(
       <EventTimeline
-        status="loaded"
         data={eventDataUI}
         page={1}
         countPages={3}

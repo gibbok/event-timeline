@@ -1,15 +1,14 @@
-import { CausesUI } from "@/components/apps/EventTimeline/transform";
 import {
   Box,
   Table,
   TableBody,
   TableCell,
   TableContainer,
-  TableHead,
   TableRow,
   Typography,
 } from "@mui/material";
 import React from "react";
+import { CausesUI } from "./types";
 
 type CausesInfoProps = CausesUI;
 
