@@ -4,13 +4,13 @@ import "@fontsource/roboto/400.css";
 import "@fontsource/roboto/500.css";
 import "@fontsource/roboto/700.css";
 
-import { init } from "@/configs/init";
-import type { AppProps } from "next/app";
-import { QueryClient, QueryClientProvider } from "react-query";
-import { ErrorBoundary } from "@/components/commons/ErrorBoundary/ErrorBoundary";
+import { initialize } from "@/configs/initializationLibs";
 import { Layout } from "@/components/commons/Layout/Layout";
+import { ErrorBoundary } from "@/components/commons/ErrorBoundary/ErrorBoundary";
+import { QueryClient, QueryClientProvider } from "react-query";
+import { AppProps } from "next/app";
 
-init();
+initialize();
 
 const queryClient = new QueryClient();
 
