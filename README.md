@@ -72,6 +72,10 @@ An additional layer of testing for the UI could be Visual Regression Testing, Lo
 
 As a testing strategy, we could evaluate the Testing Pyramid.
 
+## Video
+
+https://user-images.githubusercontent.com/17195702/227739915-af1446d5-190c-42ba-8109-08e036024033.mov
+
 ## Screenshots
 
 ![Screenshot 2023-03-25 at 9 17 49 PM](https://user-images.githubusercontent.com/17195702/227739615-bc2e608a-5e2f-4454-94d1-73eee9f4c85c.png)
