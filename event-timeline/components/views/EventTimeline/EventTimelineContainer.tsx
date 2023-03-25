@@ -1,5 +1,7 @@
+import { EventsAPI, ResponseEventsAPI } from "@/api/types";
 import { useGetEvents } from "@/api/useGetEvents/useGetEvents";
-import { Box, CircularProgress } from "@mui/material";
+import { ErrorMessage } from "@/components/commons/ErrorMessage/ErrorMessage";
+import { CircularProgress } from "@mui/material";
 import React from "react";
 import { EventTimeline } from "./EventTimeline";
 import {
@@ -10,27 +12,30 @@ import { EventsInfoUI } from "./types";
 
 const EVENTS_PER_PAGE = 10;
 
+const transform = (data: ResponseEventsAPI): EventsInfoUI => ({
+  countEvents: data.countEvents,
+  events: tranformResponseApiToUiData(sortEventsByOccurenceDesc(data.events)),
+});
+
 export const EventTimelineContainer = () => {
   const [page, setPage] = React.useState(1);
-  const { data, isLoading } = useGetEvents<EventsInfoUI>({
+  const { data, isLoading, error } = useGetEvents<EventsInfoUI>({
     page,
     limit: EVENTS_PER_PAGE,
-    transform: (data) => {
-      return {
-        countEvents: data.countEvents,
-        events: tranformResponseApiToUiData(
-          sortEventsByOccurenceDesc(data.events)
-        ),
-      };
-    },
+    transform,
   });
 
   if (isLoading) {
     return <CircularProgress />;
   }
 
+  if (error) {
+    return <ErrorMessage message="Network Request Failed" />;
+  }
+
   const handleChangePage = (page: number) => {
     setPage(page);
+    window.scrollTo(0, 0);
   };
 
   if (data) {
@@ -43,4 +48,6 @@ export const EventTimelineContainer = () => {
       />
     );
   }
+
+  return null;
 };
