@@ -1,5 +1,5 @@
 import { ResponseEventsAPI } from '@/api/types'
-import { eventsData } from '@/stabs/events'
+import { eventsData } from '@/stubs/events'
 import type { NextApiRequest, NextApiResponse } from 'next'
 
 const validateNumericQueryParamOrDefault = (defaultValue: number) => (query: string | string[] | undefined): number => {
