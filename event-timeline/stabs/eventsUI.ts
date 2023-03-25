@@ -1,4 +1,4 @@
-import { EventsUI } from "@/components/views/EventTimeline/transform";
+import { EventsUI } from "@/components/views/EventTimeline/types";
 
 export const eventDataUI = [
     {
