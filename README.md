@@ -56,7 +56,7 @@ If the UX does not allow for a "classical" pagination, different techniques can 
 
 ## UX/UI Aspects
 
-For this simple application, I have chosen `MUI` for its simplicity and wide range of pre-made UI components.
+For this simple application, I have chosen `MUI` for its simplicity and wide range of pre-made UI components. The use of Material-UI also provides a consistent and visually pleasing UI.
 
 The main view contains essential information about the events, with the event status highlighted with a color to grab the user's attention. It is possible to expand an event to get more information by clicking on the chevron icon on the right side of the event. When clicked, users can read more information, such as device and causes. I kept the design minimal to save time, so the content is displayed in a simple table. In a real application, we could definitely improve the layout and show more relevant infos.
 
