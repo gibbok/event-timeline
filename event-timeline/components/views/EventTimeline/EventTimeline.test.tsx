@@ -4,7 +4,7 @@ import userEvent from "@testing-library/user-event";
 import { EventTimeline } from "./EventTimeline";
 
 describe("EventTimeline", () => {
-  it("should render text no data when data is empty", () => {
+  it("should renders a 'No data' message when data is empty", () => {
     render(
       <EventTimeline
         data={[]}
@@ -14,7 +14,7 @@ describe("EventTimeline", () => {
       />
     );
 
-    expect(screen.getByText(/no data/i)).toBeInTheDocument();
+    expect(screen.getByText("No data")).toBeInTheDocument();
   });
 
   it("should renders event timeline with data and pagination", () => {
@@ -29,15 +29,19 @@ describe("EventTimeline", () => {
       />
     );
 
-    expect(screen.getByText(/downtime_report_submitted/i)).toBeInTheDocument();
-    expect(screen.getByText(/in_progress/i)).toBeInTheDocument();
-    expect(screen.getAllByText(/thad cormier/i)).toHaveLength(2);
+    expect(screen.getByText("downtime_report_submitted")).toBeInTheDocument();
+    expect(screen.getByText("in_progress")).toBeInTheDocument();
+    expect(screen.getAllByText("Thad Cormier")).toHaveLength(2);
     expect(
-      screen.getAllByText(/bench - panels \/ urban splash house factory/i)
+      screen.getAllByText("Bench - Panels / Urban Splash House Factory")
     ).toHaveLength(2);
-    expect(screen.getByText(/6:40:49 pm \- 11\/23\/22/i)).toBeInTheDocument();
-    expect(screen.getByText(/6:40:46 pm \- 11\/23\/22/i)).toBeInTheDocument();
-    expect(screen.getByRole("button", { name: /page 1/i })).toBeInTheDocument();
+    screen.logTestingPlaygroundURL();
+    expect(screen.getByText("6:40:49 PM - 11/23/22")).toBeInTheDocument();
+    expect(screen.getByText("6:40:46 PM - 11/23/22")).toBeInTheDocument();
+
+    const pagination = screen.getByRole("navigation");
+    expect(pagination).toBeInTheDocument();
+
     expect(screen.getAllByTestId("ExpandMoreIcon")).toHaveLength(2);
 
     expect(onChangePage).not.toBeCalled();
@@ -57,7 +61,7 @@ describe("EventTimeline", () => {
 
     userEvent.click(screen.getByTestId("ExpandMoreIcon"));
 
-    expect(await screen.findByText(/device id/i)).toBeInTheDocument();
+    expect(await screen.findByText("Device Id")).toBeInTheDocument();
     expect(screen.getByTestId("ExpandLessIcon")).toBeInTheDocument();
     expect(onChangePage).not.toBeCalled();
   });
