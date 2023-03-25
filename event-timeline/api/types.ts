@@ -26,15 +26,15 @@ export type EventAPI = Readonly<{
 export type JobEventMetadataAPI = Readonly<{
     device?: DeviceAPI;
     job_headcount?: number;
-    checked_pre_flight_checks?: CheckedPreFlightCheckAPI[];
+    checked_pre_flight_checks?: Readonly<CheckedPreFlightCheckAPI>;
     causes?: CausesAPI;
     note?: string;
     in_process_check?: InProcessCheckAPI;
 }>
 
 export type CausesAPI = Readonly<{
-    Design: string[];
-    Rework?: string[];
+    Design: ReadonlyArray<string>;
+    Rework?: ReadonlyArray<string>;
 }>
 
 export type CheckedPreFlightCheckAPI = Readonly<{
@@ -64,7 +64,7 @@ export type InProcessCheckAPI = Readonly<{
     name: string;
     type: string;
     order: number;
-    images: ReadonlyArray<ImageAPI[]>;
+    images: ReadonlyArray<ImageAPI>;
     addressed_on: string;
     check_status: string;
     check?: string;
