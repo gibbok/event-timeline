@@ -61,7 +61,7 @@ export const EventInfo = ({
             >
               {type}
             </Typography>
-            <Typography color="text.primary" gutterBottom>
+            <Typography variant="subtitle1" color="text.primary" gutterBottom>
               {userName}
             </Typography>
           </Box>
