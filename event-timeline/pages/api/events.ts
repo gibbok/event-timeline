@@ -10,7 +10,6 @@ const validateNumericQueryParamOrDefault = (defaultValue: number) => (query: str
   return parsedValue
 }
 
-
 const getNumericQueryParamOrDefault = validateNumericQueryParamOrDefault(1)
 
 type ServerError = {
