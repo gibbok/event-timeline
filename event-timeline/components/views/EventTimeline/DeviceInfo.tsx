@@ -1,4 +1,5 @@
 import { TypographyTable } from "@/components/commons/TypographyBase/TypographyBase";
+import { NO_BORDER_LAST_ROW } from "@/components/commons/utils";
 import {
   Box,
   Table,
@@ -8,7 +9,7 @@ import {
   TableRow,
   Tooltip,
 } from "@mui/material";
-import React from "react";
+import React, { useState } from "react";
 import { DeviceUI } from "./types";
 
 type DeviceInfoProps = DeviceUI;
@@ -19,7 +20,8 @@ const makeCell = (content: string) => (
   </TableCell>
 );
 
-const formaDeviceId = (deviceId: string) => `${deviceId.substring(0, 7)} ...`;
+const truncateDeviceId = (deviceId: string) =>
+  `${deviceId.substring(0, 7)} ...`;
 
 export const DeviceInfo = ({
   deviceId,
@@ -28,7 +30,7 @@ export const DeviceInfo = ({
   partnerName,
   stationName,
 }: DeviceInfoProps) => {
-  const [showFullDeviceId, setShowFullDeviceId] = React.useState(false);
+  const [showFullDeviceId, setShowFullDeviceId] = useState(false);
 
   const handleShowFullDeviceId = () => {
     setShowFullDeviceId((prevState) => !prevState);
@@ -49,7 +51,9 @@ export const DeviceInfo = ({
                   open={showFullDeviceId}
                   onClick={handleShowFullDeviceId}
                 >
-                  <TypographyTable>{formaDeviceId(deviceId)}</TypographyTable>
+                  <TypographyTable>
+                    {truncateDeviceId(deviceId)}
+                  </TypographyTable>
                 </Tooltip>
               </TableCell>
             </TableRow>
@@ -65,7 +69,7 @@ export const DeviceInfo = ({
               {makeCell("Partner")}
               {makeCell(partnerName)}
             </TableRow>
-            <TableRow sx={{ "& > *": { borderBottom: "unset" } }}>
+            <TableRow sx={NO_BORDER_LAST_ROW}>
               {makeCell("Station")}
               {makeCell(stationName)}
             </TableRow>

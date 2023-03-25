@@ -1,7 +1,7 @@
 import { TypographyTable } from "@/components/commons/TypographyBase/TypographyBase";
+import { NO_BORDER_LAST_ROW } from "@/components/commons/utils";
 import {
   Box,
-  SxProps,
   Table,
   TableBody,
   TableCell,
@@ -13,10 +13,6 @@ import React from "react";
 import { CausesUI } from "./types";
 
 type CausesInfoProps = CausesUI;
-
-const NO_BORDER_LAST_ROW: SxProps<Theme> = {
-  "& > *": { borderBottom: "unset" },
-};
 
 export const CausesInfo = ({ design, rework }: CausesInfoProps) => {
   return (
