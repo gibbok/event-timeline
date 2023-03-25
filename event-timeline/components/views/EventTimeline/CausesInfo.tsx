@@ -1,16 +1,22 @@
 import { TypographyTable } from "@/components/commons/TypographyBase/TypographyBase";
 import {
   Box,
+  SxProps,
   Table,
   TableBody,
   TableCell,
   TableContainer,
   TableRow,
+  Theme,
 } from "@mui/material";
 import React from "react";
 import { CausesUI } from "./types";
 
 type CausesInfoProps = CausesUI;
+
+const NO_BORDER_LAST_ROW: SxProps<Theme> = {
+  "& > *": { borderBottom: "unset" },
+};
 
 export const CausesInfo = ({ design, rework }: CausesInfoProps) => {
   return (
@@ -30,7 +36,7 @@ export const CausesInfo = ({ design, rework }: CausesInfoProps) => {
               </TableCell>
             </TableRow>
             {rework && (
-              <TableRow sx={{ "& > *": { borderBottom: "unset" } }}>
+              <TableRow sx={NO_BORDER_LAST_ROW}>
                 <TableCell>
                   <TypographyTable>Rework</TypographyTable>
                 </TableCell>
