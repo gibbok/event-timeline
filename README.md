@@ -37,3 +37,40 @@ The `components` folder includes UI components divided per `views` or `commons` 
 The `pages` rolder contains routing entry points based on Next.js.
 
 By using these techniques we can more easily separate concerns and allow quickly testing the majority of our components.
+
+## Performance
+
+In order to maintain a good the browser performance an keep the memory consumptions low (number of DOM node) and the payload size (network requests and parsing) I am using a simple pagination tecnique, so a limited amount of records are downloaded and displayed to the user at any specific time; In this application he pagination is peformed by the server commanded by the client using query paramenters.
+
+In case the UX does not allow a "classical" pagination we could evaluate different tecquines:
+
+- Infinite scroll: we could load data when the user scroll or click a button "load more", with this data is loaded incrementally. As the number of nodes in the DOM will increase with the amount of scroll would be necessary to virtualize only the visible DOM nodes, this can be achived using some library as <https://tanstack.com/virtual/v3> this techique is called windowing.
+
+## UX/UI aspects
+
+For this simple application I chosen [MUI](https://mui.com/) for its simplicity and wide range of pre-made UI components.
+
+The main view, contains essential information about the events, with the event status highlighed with some color in order to grab the attention.
+It is possible to expans an event to get more information by clicking on the chevron icon on the right side of the an event.
+On click user can read more information for instance device and causes.
+I kept the design here at bear minimal in order to save some time, so the content is displaying in simple table. In a real application we could defintelly improve the layout.
+
+Pagination is sticky in at the bottom of the screen easily finding and navigation.
+
+The events are ordered in desc order, so the most recent are on top. Could be useful to evaluate some type of filtering for instance.
+
+## Testing
+
+The current used architect allow a clean separation of concern between different types of components.
+Simple components, which rappresent all the view are easily testable without any stabbing of network request.
+I drafted few tests `EventTimeline.test.tsx` using `Jest` and `React Testing Library`.
+Transformation are created as utility function which can be easily unit tested.
+Basic functional composition is being as mechanism to combine operation on data.
+
+In a real world application we could consider using [MSW](https://mswjs.io/) to stab network requests for our containers and test with `React Testing Library` our components.
+
+In addition E2E testing could be used, for instance using Cypress.
+
+An additional layer of testing of the UI could be Visual Regression testing, Loki or Happo.io.
+
+As testing strategy we could evaluate the Testing Pyramid.
