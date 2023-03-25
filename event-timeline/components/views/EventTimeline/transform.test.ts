@@ -1,5 +1,5 @@
 import { eventsData } from "@/stabs/events";
-import { sortEventsByOccurenceDesc, tranformResponseApiToUiData as tranformResponseApiToUiData } from "./transform";
+import { sortEventsByOccurenceDesc, tranformResponseApiToUiData, } from "./transform";
 
 describe("DeviceInfo", () => {
     describe("tranformResponseApiToUiData", () => {
