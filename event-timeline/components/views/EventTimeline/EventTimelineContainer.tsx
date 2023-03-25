@@ -1,3 +1,4 @@
+import { EventsAPI, ResponseEventsAPI } from "@/api/types";
 import { useGetEvents } from "@/api/useGetEvents/useGetEvents";
 import { ErrorMessage } from "@/components/commons/ErrorMessage/ErrorMessage";
 import { CircularProgress } from "@mui/material";
@@ -11,17 +12,17 @@ import { EventsInfoUI } from "./types";
 
 const EVENTS_PER_PAGE = 10;
 
+const transform = (data: ResponseEventsAPI): EventsInfoUI => ({
+  countEvents: data.countEvents,
+  events: tranformResponseApiToUiData(sortEventsByOccurenceDesc(data.events)),
+});
+
 export const EventTimelineContainer = () => {
   const [page, setPage] = React.useState(1);
   const { data, isLoading, error } = useGetEvents<EventsInfoUI>({
     page,
     limit: EVENTS_PER_PAGE,
-    transform: (data) => ({
-      countEvents: data.countEvents,
-      events: tranformResponseApiToUiData(
-        sortEventsByOccurenceDesc(data.events)
-      ),
-    }),
+    transform,
   });
 
   if (isLoading) {
