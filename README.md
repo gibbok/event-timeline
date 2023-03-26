@@ -73,6 +73,6 @@ https://user-images.githubusercontent.com/17195702/227739915-af1446d5-190c-42ba-
 
 ## Screenshots
 
-![Screenshot 2023-03-25 at 9 17 49 PM](https://user-images.githubusercontent.com/17195702/227739615-bc2e608a-5e2f-4454-94d1-73eee9f4c85c.png)
+![Screenshot 2023-03-26 at 11 27 06 AM](https://user-images.githubusercontent.com/17195702/227766841-291c21bd-a7d6-40bf-a087-434c82861d11.png)
 
-![Screenshot 2023-03-25 at 9 18 15 PM](https://user-images.githubusercontent.com/17195702/227739618-043cff0a-69cc-42fb-9363-4c69da1fe91a.png)
+![Screenshot 2023-03-26 at 11 27 26 AM](https://user-images.githubusercontent.com/17195702/227766842-e7929099-8c13-4758-96ab-e177e6bccfba.png)
