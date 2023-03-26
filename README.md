@@ -4,7 +4,7 @@ Event Timeline is a mini application based on React, TypeScript, and MUI. This d
 
 Running the application hosted on Vercel. You can visit it here:
 
-XXX
+<https://event-timeline.vercel.app/>
 
 ## Installation Instructions
 
