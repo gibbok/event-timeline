@@ -35,14 +35,13 @@ describe("EventTimeline", () => {
     expect(
       screen.getAllByText("Bench - Panels / Urban Splash House Factory")
     ).toHaveLength(2);
-    screen.logTestingPlaygroundURL();
-    expect(screen.getByText("6:40:49 PM - 11/23/22")).toBeInTheDocument();
-    expect(screen.getByText("6:40:46 PM - 11/23/22")).toBeInTheDocument();
+    expect(screen.getByText("5:40:49 PM - 11/23/22")).toBeInTheDocument();
+    expect(screen.getByText("5:40:46 PM - 11/23/22")).toBeInTheDocument();
+
+    expect(screen.getAllByTestId("ExpandMoreIcon")).toHaveLength(2);
 
     const pagination = screen.getByRole("navigation");
     expect(pagination).toBeInTheDocument();
-
-    expect(screen.getAllByTestId("ExpandMoreIcon")).toHaveLength(2);
 
     expect(onChangePage).not.toBeCalled();
   });

@@ -18,12 +18,16 @@ describe("DeviceInfo component", () => {
     expect(screen.getByText("DEVICE")).toBeInTheDocument();
     expect(screen.getByText("Device Id")).toBeInTheDocument();
     expect(screen.getByText("ABC1234 ...")).toBeInTheDocument();
+
     expect(screen.getByText("Zone")).toBeInTheDocument();
     expect(screen.getByText("Zone 1")).toBeInTheDocument();
+
     expect(screen.getByText("Factory")).toBeInTheDocument();
     expect(screen.getByText("Factory 1")).toBeInTheDocument();
+
     expect(screen.getByText("Partner")).toBeInTheDocument();
     expect(screen.getByText("Partner 1")).toBeInTheDocument();
+
     expect(screen.getByText("Station")).toBeInTheDocument();
     expect(screen.getByText("Station 1")).toBeInTheDocument();
   });

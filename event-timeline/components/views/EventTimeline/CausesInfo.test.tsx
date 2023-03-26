@@ -13,13 +13,11 @@ describe("CausesInfo", () => {
     expect(screen.getByText("CAUSES")).toBeInTheDocument();
 
     expect(screen.getByText("Design")).toBeInTheDocument();
-
     expect(
       screen.getByText("Design Issue 1, Design Issue 2")
     ).toBeInTheDocument();
 
     expect(screen.getByText("Rework")).toBeInTheDocument();
-
     expect(
       screen.getByText("Rework Issue 1, Rework Issue 2")
     ).toBeInTheDocument();
@@ -29,7 +27,6 @@ describe("CausesInfo", () => {
     render(<CausesInfo design={[]} />);
 
     expect(screen.getByText("Design")).toBeInTheDocument();
-
     expect(screen.getByText("No data")).toBeInTheDocument();
   });
 
@@ -37,11 +34,9 @@ describe("CausesInfo", () => {
     render(<CausesInfo design={["Design Issue"]} />);
 
     expect(screen.getByText("Design")).toBeInTheDocument();
-
     expect(screen.getByText("Design Issue")).toBeInTheDocument();
 
     expect(screen.queryByText("Rework")).not.toBeInTheDocument();
-
     expect(screen.queryByText("Rework Issue")).not.toBeInTheDocument();
   });
 });
