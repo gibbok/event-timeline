@@ -8,6 +8,7 @@ import {
   TableContainer,
   TableRow,
   Tooltip,
+  Typography,
 } from "@mui/material";
 import React, { useState } from "react";
 import { DeviceUI } from "./types";
@@ -51,9 +52,7 @@ export const DeviceInfo = ({
                   open={showFullDeviceId}
                   onClick={handleShowFullDeviceId}
                 >
-                  <TypographyTable>
-                    {truncateDeviceId(deviceId)}
-                  </TypographyTable>
+                  <Typography>{truncateDeviceId(deviceId)}</Typography>
                 </Tooltip>
               </TableCell>
             </TableRow>
