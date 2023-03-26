@@ -22,7 +22,7 @@ Follow these steps to install the Event Timeline application:
 The following technologies were used in the development of the Event Timeline application:
 
 - `TypeScript` and `ReactJS` were used to provide type safety and build user interfaces.
-- The project is built on top of `Next.js`.
+- The project is built on top of `Next.js` and deployed to `Vercel`.
 - `React Query` was used for declarative server-state data management, and `Axios` was used for data fetching.
 - `Material UI` was used for UI components, with a fluid layout.
 - `Jest` and `React Testing Library` were used for testing.
@@ -43,10 +43,7 @@ The `pages` folder contains routing entry points based on `Next.js`.
 
 These techniques allow for the separation of concerns and enable quick testing of the majority of our components.
 
-The project uses some functional programming techniques such as:
-
-- Functional composition, which is used as a mechanism to combine operations on data.
-- Immutable data structures, which are used to provide predictability.
+The project uses immutable data structures, which are used to provide predictability.
 
 ## Performance
 
@@ -58,11 +55,11 @@ If the UX does not allow for a "classical" pagination, different techniques can 
 
 For this simple application, I have chosen `MUI` for its simplicity and wide range of pre-made UI components. The use of Material-UI also provides a consistent and visually pleasing UI.
 
-The main view contains essential information about the events, with the event status highlighted with a color to grab the user's attention. It is possible to expand an event to get more information by clicking on the chevron icon on the right side of the event. When clicked, users can read more information, such as device and causes. I kept the design minimal to save time, so the content is displayed in a simple table. In a real application, we could definitely improve the layout and show more relevant infos.
+The main view displays essential information about events, with the status of each event highlighted in a color to draw the user's attention. To access more information, users can click on the chevron icon located on the right side of the event. This will expand the event and reveal additional details, such as the device and causes. In the interest of time, I kept the design minimal and omitted some content, resulting in a simple table display. However, in a real-world application, we could certainly improve the layout and display more relevant information.
 
 Pagination is sticky at the bottom of the screen, making it easy to find and navigate.
 
-The events are ordered in descending order, so the most recent events are on top. It could be useful to evaluate some type of filtering, for instance.
+The events are ordered in descending order at the server-side, which avoids the need for the client to perform sorting and ensures that the most recent events are displayed at the top. While this provides a convenient overview of recent activity, it may be useful to consider implementing some type of filtering. For example, users could filter events by type or time range, allowing them to focus on specific information and improve the relevance of the displayed data.
 
 ## Testing
 
