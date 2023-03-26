@@ -1,4 +1,3 @@
-import { TypographyTable } from "@/components/commons/TypographyBase/TypographyBase";
 import { NO_BORDER_LAST_ROW } from "@/components/commons/utils";
 import {
   Box,
@@ -8,6 +7,7 @@ import {
   TableContainer,
   TableRow,
   Theme,
+  Typography,
 } from "@mui/material";
 import React from "react";
 import { CausesUI } from "./types";
@@ -17,27 +17,27 @@ type CausesInfoProps = CausesUI;
 export const CausesInfo = ({ design, rework }: CausesInfoProps) => {
   return (
     <Box width="50%" ml={5} mt={3}>
-      <TypographyTable>CAUSES</TypographyTable>
+      <Typography>CAUSES</Typography>
       <TableContainer>
         <Table size="small">
           <TableBody>
             <TableRow>
               <TableCell>
-                <TypographyTable>Design</TypographyTable>
+                <Typography>Design</Typography>
               </TableCell>
               <TableCell>
-                <TypographyTable>
+                <Typography>
                   {design.length > 0 ? design.join(", ") : " No data"}
-                </TypographyTable>
+                </Typography>
               </TableCell>
             </TableRow>
             {rework && (
               <TableRow sx={NO_BORDER_LAST_ROW}>
                 <TableCell>
-                  <TypographyTable>Rework</TypographyTable>
+                  <Typography>Rework</Typography>
                 </TableCell>
                 <TableCell>
-                  <TypographyTable>{rework.join(", ")}</TypographyTable>
+                  <Typography>{rework.join(", ")}</Typography>
                 </TableCell>
               </TableRow>
             )}
