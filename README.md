@@ -64,15 +64,8 @@ The events are ordered in descending order at the server-side, which avoids the 
 ## Testing
 
 The current architecture allows for a clean separation of concerns between different types of components. Simple components, which represent all the views, are easily testable without any network requests. I have created a few tests, `EventTimeline.test.tsx`, using Jest and `React Testing Library`. Transformations are created as utility functions, which can be easily unit tested.
-I used a TDD (Test Driven Development) approach for writing utility functions.
 
-In a real-world application, we could consider using MSW to mock network requests for our containers and test our components with React Testing Library.
-
-In addition, E2E testing could be used, for instance, using Cypress.
-
-An additional layer of testing for the UI could be Visual Regression Testing, Loki, or Happo.io.
-
-As a testing strategy, we could evaluate the Testing Pyramid.
+Furthermore, we could consider implementing end-to-end testing using Cypress or another similar tool. Another layer of UI testing could be added through Visual Regression Testing, utilizing tools such as Loki or Happo.io. To ensure a comprehensive and effective testing strategy, we could evaluate the Testing Pyramid and determine the most appropriate balance of unit, integration, and end-to-end testing for our application.
 
 ## Video
 
