@@ -1,4 +1,4 @@
-import { eventDataUI } from "@/stubs/eventsUI";
+import { eventsDataUI } from "@/stubs/eventsUI";
 import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { EventTimeline } from "./EventTimeline";
@@ -22,7 +22,7 @@ describe("EventTimeline", () => {
 
     render(
       <EventTimeline
-        data={eventDataUI.slice(0, 2)}
+        data={eventsDataUI.slice(0, 2)}
         page={1}
         countPages={1}
         onChangePage={onChangePage}
@@ -35,14 +35,13 @@ describe("EventTimeline", () => {
     expect(
       screen.getAllByText("Bench - Panels / Urban Splash House Factory")
     ).toHaveLength(2);
-    screen.logTestingPlaygroundURL();
-    expect(screen.getByText("6:40:49 PM - 11/23/22")).toBeInTheDocument();
-    expect(screen.getByText("6:40:46 PM - 11/23/22")).toBeInTheDocument();
+    expect(screen.getByText("5:40:49 PM - 11/23/22")).toBeInTheDocument();
+    expect(screen.getByText("5:40:46 PM - 11/23/22")).toBeInTheDocument();
+
+    expect(screen.getAllByTestId("ExpandMoreIcon")).toHaveLength(2);
 
     const pagination = screen.getByRole("navigation");
     expect(pagination).toBeInTheDocument();
-
-    expect(screen.getAllByTestId("ExpandMoreIcon")).toHaveLength(2);
 
     expect(onChangePage).not.toBeCalled();
   });
@@ -52,7 +51,7 @@ describe("EventTimeline", () => {
 
     render(
       <EventTimeline
-        data={eventDataUI.slice(0, 1)}
+        data={eventsDataUI.slice(0, 1)}
         page={1}
         countPages={1}
         onChangePage={onChangePage}
@@ -71,7 +70,7 @@ describe("EventTimeline", () => {
 
     render(
       <EventTimeline
-        data={eventDataUI}
+        data={eventsDataUI}
         page={1}
         countPages={3}
         onChangePage={onChangePage}

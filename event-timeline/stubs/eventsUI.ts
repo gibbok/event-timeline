@@ -1,6 +1,6 @@
 import { EventsUI } from "@/components/views/EventTimeline/types";
 
-export const eventDataUI = [
+export const eventsDataUI = [
     {
         "eventId": "be317a24-09b8-4b5b-997b-a8542a1738a2",
         "cardId": "ce6bff8d-eb09-4208-9405-c2594f74ccb0",

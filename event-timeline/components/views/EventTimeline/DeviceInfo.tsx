@@ -1,4 +1,3 @@
-import { TypographyTable } from "@/components/commons/TypographyBase/TypographyBase";
 import { NO_BORDER_LAST_ROW } from "@/components/commons/utils";
 import {
   Box,
@@ -8,6 +7,7 @@ import {
   TableContainer,
   TableRow,
   Tooltip,
+  Typography,
 } from "@mui/material";
 import React, { useState } from "react";
 import { DeviceUI } from "./types";
@@ -16,7 +16,7 @@ type DeviceInfoProps = DeviceUI;
 
 const makeCell = (content: string) => (
   <TableCell>
-    <TypographyTable>{content}</TypographyTable>
+    <Typography>{content}</Typography>
   </TableCell>
 );
 
@@ -38,7 +38,7 @@ export const DeviceInfo = ({
 
   return (
     <Box width="50%" mt={3}>
-      <TypographyTable>DEVICE</TypographyTable>
+      <Typography>DEVICE</Typography>
       <TableContainer>
         <Table size="small">
           <TableBody>
@@ -51,9 +51,7 @@ export const DeviceInfo = ({
                   open={showFullDeviceId}
                   onClick={handleShowFullDeviceId}
                 >
-                  <TypographyTable>
-                    {truncateDeviceId(deviceId)}
-                  </TypographyTable>
+                  <Typography>{truncateDeviceId(deviceId)}</Typography>
                 </Tooltip>
               </TableCell>
             </TableRow>

@@ -1,5 +1,6 @@
 import { ResponseEventsAPI } from '@/api/types'
-import { eventsData } from '@/stubs/events'
+import { sortEventsByOccurenceDesc } from '@/api/utils'
+import { eventsDataAPI } from '@/stubs/eventsAPI'
 import type { NextApiRequest, NextApiResponse } from 'next'
 
 const validateNumericQueryParamOrDefault = (defaultValue: number) => (query: string | string[] | undefined): number => {
@@ -30,8 +31,8 @@ export default function handler(
     const end = start + limit
 
     return res.status(200).json({
-      countEvents: eventsData.length,
-      events: eventsData.slice(start, end)
+      countEvents: eventsDataAPI.length,
+      events: sortEventsByOccurenceDesc(eventsDataAPI).slice(start, end)
     })
   } catch (error) {
     if (error instanceof Error) {
