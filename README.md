@@ -25,7 +25,7 @@ The following technologies were used in the development of the Event Timeline ap
 - The project is built on top of `Next.js`.
 - `React Query` was used for declarative server-state data management, and `Axios` was used for data fetching.
 - `Material UI` was used for UI components, with a fluid layout.
-- `Jest` and `React Testing Library` were used for testing, and utility functions were mainly written in TDD style.
+- `Jest` and `React Testing Library` were used for testing.
 
 ## Architectural Overview and Project Structure
 
