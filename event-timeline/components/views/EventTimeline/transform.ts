@@ -17,11 +17,6 @@ const getCausesUIFromCausedAPI = (causes: CausesAPI): CausesUI =>
     rework: causes.Rework
 })
 
-
-export const sortEventsByOccurenceDesc = (data: EventsAPI) => [...data].sort((a, b) =>
-    Number(new Date(b.job_event_occurrence)) - Number(new Date(a.job_event_occurrence)))
-
-
 export const tranformResponseApiToUiData = (data: EventsAPI): EventsUI =>
     data.map(event =>
     ({

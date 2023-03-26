@@ -1,4 +1,5 @@
 import { ResponseEventsAPI } from '@/api/types'
+import { sortEventsByOccurenceDesc } from '@/api/utils'
 import { eventsDataAPI } from '@/stubs/eventsAPI'
 import type { NextApiRequest, NextApiResponse } from 'next'
 
@@ -31,7 +32,7 @@ export default function handler(
 
     return res.status(200).json({
       countEvents: eventsDataAPI.length,
-      events: eventsDataAPI.slice(start, end)
+      events: sortEventsByOccurenceDesc(eventsDataAPI).slice(start, end)
     })
   } catch (error) {
     if (error instanceof Error) {

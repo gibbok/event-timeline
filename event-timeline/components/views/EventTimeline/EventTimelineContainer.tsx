@@ -4,17 +4,14 @@ import { ErrorMessage } from "@/components/commons/ErrorMessage/ErrorMessage";
 import { CircularProgress } from "@mui/material";
 import React from "react";
 import { EventTimeline } from "./EventTimeline";
-import {
-  sortEventsByOccurenceDesc,
-  tranformResponseApiToUiData,
-} from "./transform";
+import { tranformResponseApiToUiData } from "./transform";
 import { EventsInfoUI } from "./types";
 
 const EVENTS_PER_PAGE = 10;
 
 const transform = (data: ResponseEventsAPI): EventsInfoUI => ({
   countEvents: data.countEvents,
-  events: tranformResponseApiToUiData(sortEventsByOccurenceDesc(data.events)),
+  events: tranformResponseApiToUiData(data.events),
 });
 
 export const EventTimelineContainer = () => {
