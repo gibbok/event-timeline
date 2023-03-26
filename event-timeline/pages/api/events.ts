@@ -1,5 +1,5 @@
 import { ResponseEventsAPI } from '@/api/types'
-import { sortEventsByOccurenceDesc } from '@/api/utils'
+import { logError, sortEventsByOccurenceDesc } from '@/api/utils'
 import { eventsDataAPI } from '@/stubs/eventsAPI'
 import type { NextApiRequest, NextApiResponse } from 'next'
 
@@ -36,6 +36,7 @@ export default function handler(
     })
   } catch (error) {
     if (error instanceof Error) {
+      logError(error)
       return res.status(500).json({ error: error.message })
     } else {
       return res.status(500).json({ error: 'Unknown error' })
