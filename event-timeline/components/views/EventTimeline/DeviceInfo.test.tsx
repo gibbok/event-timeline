@@ -1,35 +1,38 @@
-import { render, screen } from "@testing-library/react";
+import { render, screen, fireEvent, waitFor } from "@testing-library/react";
+import userEvent from "@testing-library/user-event";
 import { DeviceInfo } from "./DeviceInfo";
+import { DeviceUI } from "./types";
 
-describe("DeviceInfo", () => {
-  it("should render", () => {
-    render(
-      <DeviceInfo
-        deviceId="d85922780c45ad4eadc0919e75f964085db7649b2dcb7fd78b76f8d65ce09cd3"
-        zoneName="Bench - Panels"
-        factoryName="Urban Splash House Factory"
-        partnerName="Urban Splash"
-        stationName="Bay 1"
-      />
-    );
+describe("DeviceInfo component", () => {
+  const props: DeviceUI = {
+    deviceId: "ABC123456789",
+    zoneName: "Zone 1",
+    factoryName: "Factory 1",
+    partnerName: "Partner 1",
+    stationName: "Station 1",
+  };
 
-    expect(screen.getByText(/^device$/i)).toBeInTheDocument();
+  it("renders the device info", () => {
+    render(<DeviceInfo {...props} />);
 
-    expect(screen.getByText(/^device id$/i)).toBeInTheDocument();
-    expect(screen.getByText(/^d859227 ...$/i)).toBeInTheDocument();
+    expect(screen.getByText("DEVICE")).toBeInTheDocument();
+    expect(screen.getByText("Device Id")).toBeInTheDocument();
+    expect(screen.getByText("ABC1234 ...")).toBeInTheDocument();
+    expect(screen.getByText("Zone")).toBeInTheDocument();
+    expect(screen.getByText("Zone 1")).toBeInTheDocument();
+    expect(screen.getByText("Factory")).toBeInTheDocument();
+    expect(screen.getByText("Factory 1")).toBeInTheDocument();
+    expect(screen.getByText("Partner")).toBeInTheDocument();
+    expect(screen.getByText("Partner 1")).toBeInTheDocument();
+    expect(screen.getByText("Station")).toBeInTheDocument();
+    expect(screen.getByText("Station 1")).toBeInTheDocument();
+  });
 
-    expect(screen.getByText(/^zone$/i)).toBeInTheDocument();
-    expect(screen.getByText(/^bench - panels$/i)).toBeInTheDocument();
+  it("should expand device id when clicked on tooltip", async () => {
+    render(<DeviceInfo {...props} />);
 
-    expect(screen.getByText(/^factory$/i)).toBeInTheDocument();
-    expect(
-      screen.getByText(/^urban splash house factory$/i)
-    ).toBeInTheDocument();
-
-    expect(screen.getByText(/^partner$/i)).toBeInTheDocument();
-    expect(screen.getByText(/^urban splash$/i)).toBeInTheDocument();
-
-    expect(screen.getByText(/^station$/i)).toBeInTheDocument();
-    expect(screen.getByText(/^bay 1$/i)).toBeInTheDocument();
+    const tooltip = screen.getByText("ABC1234 ...");
+    userEvent.click(tooltip);
+    waitFor(() => expect(screen.getByText("ABC123456789")).toBeInTheDocument());
   });
 });
