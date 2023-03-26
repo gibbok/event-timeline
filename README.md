@@ -69,7 +69,7 @@ Furthermore, we could consider implementing end-to-end testing using Cypress or 
 
 ## Video
 
-https://user-images.githubusercontent.com/17195702/227739915-af1446d5-190c-42ba-8109-08e036024033.mov
+https://user-images.githubusercontent.com/17195702/227766926-fa8ef1c2-31ad-4068-bac6-145a4043ad42.mov
 
 ## Screenshots
 
