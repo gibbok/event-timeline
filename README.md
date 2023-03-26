@@ -4,7 +4,7 @@ Event Timeline is a mini application based on React, TypeScript, and MUI. This d
 
 Running the application hosted on Vercel. You can visit it here:
 
-XXX
+<https://event-timeline.vercel.app/>
 
 ## Installation Instructions
 
@@ -22,7 +22,7 @@ Follow these steps to install the Event Timeline application:
 The following technologies were used in the development of the Event Timeline application:
 
 - `TypeScript` and `ReactJS` were used to provide type safety and build user interfaces.
-- The project is built on top of `Next.js`.
+- The project is built on top of `Next.js` and deployed to `Vercel`.
 - `React Query` was used for declarative server-state data management, and `Axios` was used for data fetching.
 - `Material UI` was used for UI components, with a fluid layout.
 - `Jest` and `React Testing Library` were used for testing.
@@ -43,10 +43,7 @@ The `pages` folder contains routing entry points based on `Next.js`.
 
 These techniques allow for the separation of concerns and enable quick testing of the majority of our components.
 
-The project uses some functional programming techniques such as:
-
-- Functional composition, which is used as a mechanism to combine operations on data.
-- Immutable data structures, which are used to provide predictability.
+The project uses immutable data structures, which are used to provide predictability.
 
 ## Performance
 
@@ -58,31 +55,24 @@ If the UX does not allow for a "classical" pagination, different techniques can 
 
 For this simple application, I have chosen `MUI` for its simplicity and wide range of pre-made UI components. The use of Material-UI also provides a consistent and visually pleasing UI.
 
-The main view contains essential information about the events, with the event status highlighted with a color to grab the user's attention. It is possible to expand an event to get more information by clicking on the chevron icon on the right side of the event. When clicked, users can read more information, such as device and causes. I kept the design minimal to save time, so the content is displayed in a simple table. In a real application, we could definitely improve the layout and show more relevant infos.
+The main view displays essential information about events, with the status of each event highlighted in a color to draw the user's attention. To access more information, users can click on the chevron icon located on the right side of the event. This will expand the event and reveal additional details, such as the device and causes. In the interest of time, I kept the design minimal and omitted some content, resulting in a simple table display. However, in a real-world application, we could certainly improve the layout and display more relevant information.
 
 Pagination is sticky at the bottom of the screen, making it easy to find and navigate.
 
-The events are ordered in descending order, so the most recent events are on top. It could be useful to evaluate some type of filtering, for instance.
+The events are ordered in descending order at the server-side, which avoids the need for the client to perform sorting and ensures that the most recent events are displayed at the top. While this provides a convenient overview of recent activity, it may be useful to consider implementing some type of filtering. For example, users could filter events by type or time range, allowing them to focus on specific information and improve the relevance of the displayed data.
 
 ## Testing
 
 The current architecture allows for a clean separation of concerns between different types of components. Simple components, which represent all the views, are easily testable without any network requests. I have created a few tests, `EventTimeline.test.tsx`, using Jest and `React Testing Library`. Transformations are created as utility functions, which can be easily unit tested.
-I used a TDD (Test Driven Development) approach for writing utility functions.
 
-In a real-world application, we could consider using MSW to mock network requests for our containers and test our components with React Testing Library.
-
-In addition, E2E testing could be used, for instance, using Cypress.
-
-An additional layer of testing for the UI could be Visual Regression Testing, Loki, or Happo.io.
-
-As a testing strategy, we could evaluate the Testing Pyramid.
+Furthermore, we could consider implementing end-to-end testing using Cypress or another similar tool. Another layer of UI testing could be added through Visual Regression Testing, utilizing tools such as Loki or Happo.io. To ensure a comprehensive and effective testing strategy, we could evaluate the Testing Pyramid and determine the most appropriate balance of unit, integration, and end-to-end testing for our application.
 
 ## Video
 
-https://user-images.githubusercontent.com/17195702/227739915-af1446d5-190c-42ba-8109-08e036024033.mov
+https://user-images.githubusercontent.com/17195702/227766926-fa8ef1c2-31ad-4068-bac6-145a4043ad42.mov
 
 ## Screenshots
 
-![Screenshot 2023-03-25 at 9 17 49 PM](https://user-images.githubusercontent.com/17195702/227739615-bc2e608a-5e2f-4454-94d1-73eee9f4c85c.png)
+![Screenshot 2023-03-26 at 11 27 06 AM](https://user-images.githubusercontent.com/17195702/227766841-291c21bd-a7d6-40bf-a087-434c82861d11.png)
 
-![Screenshot 2023-03-25 at 9 18 15 PM](https://user-images.githubusercontent.com/17195702/227739618-043cff0a-69cc-42fb-9363-4c69da1fe91a.png)
+![Screenshot 2023-03-26 at 11 27 26 AM](https://user-images.githubusercontent.com/17195702/227766842-e7929099-8c13-4758-96ab-e177e6bccfba.png)
