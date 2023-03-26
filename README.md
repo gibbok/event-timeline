@@ -51,6 +51,8 @@ To maintain good browser performance, keep memory consumption low (number of DOM
 
 If the UX does not allow for a "classical" pagination, different techniques can be evaluated, such as infinite scrolling, which loads data incrementally when the user scrolls or clicks a "load more" button. As the number of nodes in the DOM increases with the amount of scroll, it is necessary to virtualize only the visible DOM nodes. This can be achieved using a library such as <https://tanstack.com/virtual/v3>. This technique is called windowing.
 
+We could consider using SSR (Server-side Rendering) to enhance the performance of our application. With SSR, the user is presented with a fully rendered page immediately, rather than waiting for the page to be generated on the client-side. This can improve the perceived performance of the application and lead to a better user experience. Next.js provides built-in support for SSR, making it easy to implement this approach in our application.
+
 ## UX/UI Aspects
 
 For this simple application, I have chosen `MUI` for its simplicity and wide range of pre-made UI components. The use of Material-UI also provides a consistent and visually pleasing UI.
