@@ -8,8 +8,8 @@ describe("Layout", () => {
         <div>Test Content</div>
       </Layout>
     );
-    const titleElement = screen.getByText("Test Title");
-    expect(titleElement).toBeInTheDocument();
+
+    expect(screen.getByText("Test Title")).toBeInTheDocument();
   });
 
   it("renders the child content", () => {
@@ -18,7 +18,7 @@ describe("Layout", () => {
         <div>Test Content</div>
       </Layout>
     );
-    const contentElement = screen.getByText("Test Content");
-    expect(contentElement).toBeInTheDocument();
+
+    expect(screen.getByText("Test Content")).toBeInTheDocument();
   });
 });
