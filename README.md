@@ -53,6 +53,8 @@ If the UX does not allow for a "classical" pagination, different techniques can 
 
 We could consider using SSR (Server-side Rendering) to enhance the performance of our application. With SSR, the user is presented with a fully rendered page immediately, rather than waiting for the page to be generated on the client-side. This can improve the perceived performance of the application and lead to a better user experience. Next.js provides built-in support for SSR, making it easy to implement this approach in our application.
 
+Additionally, we could analyze the project and, if necessary, utilize memoization to improve React performance.
+
 ## UX/UI Aspects
 
 For this simple application, I have chosen `MUI` for its simplicity and wide range of pre-made UI components. The use of Material-UI also provides a consistent and visually pleasing UI.
