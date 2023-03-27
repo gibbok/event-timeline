@@ -3,16 +3,11 @@ import { getNumericQueryParamOrDefault, validateNumericQueryParamOrDefault } fro
 describe("events", () => {
     describe("validateNumericQueryParamOrDefault", () => {
         it("returns the parsed query parameter as a number if it is valid", () => {
-            const query = "123";
-            const result = validateNumericQueryParamOrDefault(1)(query);
-
-            expect(result).toEqual(123);
+            expect(validateNumericQueryParamOrDefault(1)("123")).toEqual(123);
         });
 
         it("returns the default value if the query parameter is undefined", () => {
-            const result = validateNumericQueryParamOrDefault(1)(undefined);
-
-            expect(result).toEqual(1);
+            expect(validateNumericQueryParamOrDefault(1)(undefined)).toEqual(1);
         });
 
         it("returns the default value if the query parameter is not a number", () => {
@@ -24,25 +19,17 @@ describe("events", () => {
         });
 
         it("returns the first value in the array if the query parameter is an array", () => {
-            const query = ["123", "456"];
-            const result = validateNumericQueryParamOrDefault(1)(query);
-
-            expect(result).toEqual(123);
+            expect(validateNumericQueryParamOrDefault(1)(["123", "456"])).toEqual(123);
         });
     });
 
     describe("getNumericQueryParamOrDefault", () => {
         it("returns the parsed query parameter as a number if it is valid", () => {
-            const query = "123";
-            const result = getNumericQueryParamOrDefault(query);
-
-            expect(result).toEqual(123);
+            expect(getNumericQueryParamOrDefault("123")).toEqual(123);
         });
 
         it("returns the default value if the query parameter is undefined", () => {
-            const result = getNumericQueryParamOrDefault(undefined);
-
-            expect(result).toEqual(1);
+            expect(getNumericQueryParamOrDefault(undefined)).toEqual(1);
         });
 
         it("returns the default value if the query parameter is not a number", () => {
@@ -54,10 +41,7 @@ describe("events", () => {
         });
 
         it("returns the first value in the array if the query parameter is an array", () => {
-            const query = ["123", "456"];
-            const result = getNumericQueryParamOrDefault(query);
-
-            expect(result).toEqual(123);
+            expect(getNumericQueryParamOrDefault(["123", "456"])).toEqual(123);
         });
     });
 });
