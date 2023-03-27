@@ -53,6 +53,8 @@ If the UX does not allow for a "classical" pagination, different techniques can 
 
 We could consider using SSR (Server-side Rendering) to enhance the performance of our application. With SSR, the user is presented with a fully rendered page immediately, rather than waiting for the page to be generated on the client-side. This can improve the perceived performance of the application and lead to a better user experience. Next.js provides built-in support for SSR, making it easy to implement this approach in our application.
 
+Additionally, we could analyze the project and, if necessary, utilize memoization to improve React performance.
+
 ## UX/UI Aspects
 
 For this simple application, I have chosen `MUI` for its simplicity and wide range of pre-made UI components. The use of Material-UI also provides a consistent and visually pleasing UI.
@@ -68,6 +70,8 @@ The events are ordered in descending order at the server-side, which avoids the 
 The current architecture allows for a clean separation of concerns between different types of components. Simple components, which represent all the views, are easily testable without any network requests. I have created a few tests, `EventTimeline.test.tsx`, using Jest and `React Testing Library`. Transformations are created as utility functions, which can be easily unit tested.
 
 Furthermore, we could consider implementing end-to-end testing using Cypress or another similar tool. Another layer of UI testing could be added through Visual Regression Testing, utilizing tools such as Loki or Happo.io. To ensure a comprehensive and effective testing strategy, we could evaluate the Testing Pyramid and determine the most appropriate balance of unit, integration, and end-to-end testing for our application.
+
+Test coverage can be executed using `npm run test-coverage`. The current coverage for the project is: Branch 85.71%, Statements 73.68%, Functions 75%, and Lines 72.44%.
 
 ## Video
 

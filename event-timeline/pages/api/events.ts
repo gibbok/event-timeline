@@ -3,7 +3,7 @@ import { logError, sortEventsByOccurenceDesc } from '@/api/utils'
 import { eventsDataAPI } from '@/stubs/eventsAPI'
 import type { NextApiRequest, NextApiResponse } from 'next'
 
-const validateNumericQueryParamOrDefault = (defaultValue: number) => (query: string | string[] | undefined): number => {
+export const validateNumericQueryParamOrDefault = (defaultValue: number) => (query: string | string[] | undefined): number => {
   const parsedValue = Number(!query ? defaultValue : Array.isArray(query) ? query[0] : query)
   if (Number.isNaN(parsedValue)) {
     throw new Error(`Invalid query parameter: ${query}`)
@@ -11,7 +11,7 @@ const validateNumericQueryParamOrDefault = (defaultValue: number) => (query: str
   return parsedValue
 }
 
-const getNumericQueryParamOrDefault = validateNumericQueryParamOrDefault(1)
+export const getNumericQueryParamOrDefault = validateNumericQueryParamOrDefault(1)
 
 type ServerError = {
   error: string

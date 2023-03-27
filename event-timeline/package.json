@@ -7,7 +7,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "test": "TZ=UTC jest --watch"
+    "test": "TZ=UTC jest --watch --coverage=false",
+    "test-coverage": "TZ=UTC jest --coverage=true"
   },
   "dependencies": {
     "@emotion/react": "^11.10.6",
