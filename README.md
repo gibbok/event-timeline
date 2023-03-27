@@ -69,6 +69,8 @@ The current architecture allows for a clean separation of concerns between diffe
 
 Furthermore, we could consider implementing end-to-end testing using Cypress or another similar tool. Another layer of UI testing could be added through Visual Regression Testing, utilizing tools such as Loki or Happo.io. To ensure a comprehensive and effective testing strategy, we could evaluate the Testing Pyramid and determine the most appropriate balance of unit, integration, and end-to-end testing for our application.
 
+Test coverage can be executed using npm run test-coverage. The current coverage for the project is: Branch - 85.71%, Statements - 73.68%, Functions - 75%, and Lines - 72.44%.
+
 ## Video
 
 https://user-images.githubusercontent.com/17195702/227766926-fa8ef1c2-31ad-4068-bac6-145a4043ad42.mov
