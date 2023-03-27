@@ -1,4 +1,4 @@
-import { Typography } from "@mui/material";
+import { Box, Typography } from "@mui/material";
 import React from "react";
 
 type ErrorMessageProps = Readonly<{
@@ -6,7 +6,8 @@ type ErrorMessageProps = Readonly<{
 }>;
 
 export const ErrorMessage = ({ message }: ErrorMessageProps) => (
-  <Typography variant="body1">
-    Sorry.. there was an error 😔{` ${message}`}
-  </Typography>
+  <Box>
+    <Typography variant="body1">Sorry.. there was an error 😔</Typography>
+    {message && <Typography variant="body1">{message}</Typography>}
+  </Box>
 );
