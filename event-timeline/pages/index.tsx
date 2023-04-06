@@ -1,12 +1,22 @@
 import { QUERY_KEY_EVENTS, getEvents } from "@/api/useGetEvents/useGetEvents";
+import { logError } from "@/api/utils";
 import { DEFAULT_PAGE, EVENTS_PER_PAGE, EventTimelineContainer } from "@/components/views/EventTimeline/EventTimelineContainer";
+import { logDOM } from "@testing-library/dom";
 import Head from "next/head";
 import { QueryClient, dehydrate } from "react-query";
 
 export async function getServerSideProps() {
   const queryClient = new QueryClient()
 
-  await queryClient.prefetchQuery([QUERY_KEY_EVENTS], () => getEvents(DEFAULT_PAGE, EVENTS_PER_PAGE))
+  try {
+    await queryClient.prefetchQuery([QUERY_KEY_EVENTS], () => getEvents(DEFAULT_PAGE, EVENTS_PER_PAGE))
+  } catch (error) {
+    if (error instanceof Error) {
+      logError(error.message)
+    } else {
+      logError('Unkown error', JSON.stringify(error))
+    }
+  }
 
   return {
     props: {
