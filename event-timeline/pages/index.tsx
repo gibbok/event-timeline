@@ -1,7 +1,6 @@
 import { QUERY_KEY_EVENTS, getEvents } from "@/api/useGetEvents/useGetEvents";
 import { logError } from "@/api/utils";
 import { DEFAULT_PAGE, EVENTS_PER_PAGE, EventTimelineContainer } from "@/components/views/EventTimeline/EventTimelineContainer";
-import { logDOM } from "@testing-library/dom";
 import Head from "next/head";
 import { QueryClient, dehydrate } from "react-query";
 
