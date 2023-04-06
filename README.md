@@ -13,6 +13,7 @@ Follow these steps to install the Event Timeline application:
 - Clone this repository using `git clone https://github.com/gibbok/event-timeline.git`.
 - Navigate to the app folder using `cd event-timeline`.
 - Install dependencies using `nvm use` followed by `npm i`.
+- Use `./setup.sh`.
 - Run the project using `npm run dev`.
 - Visit <http://localhost:3000/> (or whatever is reported in your CLI).
 - To run tests in the app folder, use `npm t` and then press `a`.
