@@ -7,19 +7,22 @@ import "@fontsource/roboto/700.css";
 import { initialize } from "@/configs/initializationLibs";
 import { Layout } from "@/components/commons/Layout/Layout";
 import { ErrorBoundary } from "@/components/commons/ErrorBoundary/ErrorBoundary";
-import { QueryClient, QueryClientProvider } from "react-query";
+import { Hydrate, QueryClient, QueryClientProvider } from "react-query";
 import { AppProps } from "next/app";
+import React from "react";
 
 initialize();
 
-const queryClient = new QueryClient();
-
 export default function App({ Component, pageProps }: AppProps) {
+  const [queryClient] = React.useState(() => new QueryClient())
+
   return (
     <ErrorBoundary>
       <QueryClientProvider client={queryClient}>
         <Layout title="Event Timeline">
-          <Component {...pageProps} />
+          <Hydrate state={pageProps.dehydratedState}>
+            <Component {...pageProps} />
+          </Hydrate>
         </Layout>
       </QueryClientProvider>
     </ErrorBoundary>
