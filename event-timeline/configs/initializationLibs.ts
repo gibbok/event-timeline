@@ -1,8 +1,7 @@
 import axios from 'axios';
 import { API_BASE_URL } from './app';
-
-import getConfig from 'next/config';
+import { isBrowser } from '@/utils/others';
 
 export const initialize = () => {
-  axios.defaults.baseURL = 'http://localhost:3000/api/';
+  axios.defaults.baseURL = isBrowser() ? API_BASE_URL : process.env.BASE_URL + API_BASE_URL;
 };

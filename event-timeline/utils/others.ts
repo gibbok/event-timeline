@@ -11,3 +11,6 @@ export const formatDateTime = (dateTime: string) => {
     })
     return `${timePart} - ${datePart}`
 }
+
+
+export const isBrowser = () => typeof window !== `undefined`

@@ -1,5 +1,5 @@
 import { JobEventTypeAPI } from "@/api/types";
-import { formatDateTime } from "@/utils/format";
+import { formatDateTime } from "@/utils/others";
 import { Box, Card, CardContent, CardHeader, Typography } from "@mui/material";
 import React from "react";
 import { CausesInfo } from "./CausesInfo";
