@@ -7,7 +7,8 @@ import { EventTimeline } from "./EventTimeline";
 import { tranformResponseApiToUiData } from "./transform";
 import { EventsInfoUI } from "./types";
 
-const EVENTS_PER_PAGE = 10;
+export const DEFAULT_PAGE = 1;
+export const EVENTS_PER_PAGE = 10;
 
 const transform = (data: ResponseEventsAPI): EventsInfoUI => ({
   countEvents: data.countEvents,
@@ -15,7 +16,7 @@ const transform = (data: ResponseEventsAPI): EventsInfoUI => ({
 });
 
 export const EventTimelineContainer = () => {
-  const [page, setPage] = React.useState(1);
+  const [page, setPage] = React.useState(DEFAULT_PAGE);
   const { data, isLoading, error } = useGetEvents<EventsInfoUI>({
     page,
     limit: EVENTS_PER_PAGE,
