@@ -15,7 +15,7 @@ Follow these steps to install the Event Timeline application:
 - Install dependencies using `nvm use` followed by `npm i`.
 - Use `./setup.sh`.
 - Run the project using `npm run dev`.
-- Visit <http://localhost:3000/> (or whatever is reported in your CLI).
+- Visit <http://localhost:3000/>.
 - To run tests in the app folder, use `npm t` and then press `a`.
 
 ## Tool Overview
