@@ -8,7 +8,7 @@ export async function getServerSideProps() {
   const queryClient = new QueryClient()
 
   try {
-    await queryClient.prefetchQuery([QUERY_KEY_EVENTS], () => getEvents(DEFAULT_PAGE, EVENTS_PER_PAGE))
+    await queryClient.prefetchQuery([QUERY_KEY_EVENTS, DEFAULT_PAGE], () => getEvents(DEFAULT_PAGE, EVENTS_PER_PAGE))
   } catch (error) {
     if (error instanceof Error) {
       logError(error.message)
